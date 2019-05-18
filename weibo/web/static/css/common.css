@@ -1,0 +1,184 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+ul{
+    list-style-type: none;
+}
+
+body{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgb(137, 190, 178);
+}
+
+/*--------------- 公共样式*/
+.com-box_shadow{
+    -webkit-box-shadow: 0 1px 2px #f5f5f5;
+    -moz-box-shadow: 0 1px 2px #f5f5f5;
+    box-shadow: 0 1px 2px #f5f5f5;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.flex-row__v--center{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.flex-row__h--center{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/*--------------- 布局*/
+
+/*------------- 蒙层*/
+#meng{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 80px;
+    box-sizing: border-box;
+    display: none;
+}
+
+.meng_active{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.tip{
+    padding: 14px 52px;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/*------------- 主体*/
+#main{
+    width: 960px;
+    background: #fff;
+}
+
+.header{
+    width: 100%;
+    height: 120px;
+}
+
+.body{
+    width: 100%;
+    padding-bottom: 14px;
+    display: flex;
+    flex-direction: row;
+}
+
+/*------------------- 右侧功能栏*/
+.left_nav{
+    width: 160px;
+}
+
+.nav_title{
+    width: 100%;
+    padding: 14px 0;
+    padding-left: 14px;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: bold;
+    color: #2b669a;
+}
+
+.nav_options{
+    border-top-right-radius: 14px;
+    background: rgb(79,138,240);
+    overflow: hidden;
+}
+
+.nav_title__sub{
+    width: 100%;
+    padding-left: 28px;
+    font-size: 14px;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+.nav_sub_options{
+    width: 100%;
+    padding-left: 32px;
+    padding-top: 7px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #fff;
+    display: none;
+}
+
+.nav_options--li{
+    padding: 7px 0;
+}
+
+/*------------------------- 窗口样式*/
+.page{
+    flex: 1;
+    padding-top: 28px;
+    padding-left: 14px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*----------------------- 底部版权信息*/
+.footer{
+    background: rgb(137, 190, 178);
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/*-------------------------- js动态样式变化*/
+.active_nav{
+    background: #5bc0de;
+}
+
+.active_options{
+    display: block;
+}
+
+.active_nav__title{
+    color: #fdf7f7;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #2e6da4;
+}
+
+.active_nav__title--sub{
+    color: #98dbd2;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #2e6da4;
+}
+
+.default-clicked{
+    color: #fdf7f7;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #2b669a;
+}
+
+.option-null{
+    color: #fff;
+    font-weight: 400;
+    text-shadow: none;
+}
+
+.option-click{
+    color: #fdf7f7;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #2b669a;
+}
