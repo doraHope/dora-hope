@@ -45,12 +45,14 @@ class SessionHandler
     {
         if(!$this->sessionName) {
             $this->sessionName = 'sess_'.$sessionId;
-            $this->handler->stringSet($this->sessionName, '', 86400);
+            if(!$this->handler->stringGet($this->sessionName)) {
+                $this->param['timestamp'] = time();
+                $this->handler->stringSet($this->sessionName, serialize($this->param), 86400);
+            }
         }
         if(!$this->param) {
             return serialize([]);
         }
-
         return serialize($this->param);
     }
 

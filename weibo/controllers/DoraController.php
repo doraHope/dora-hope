@@ -10,20 +10,12 @@ use yii\web\Controller;
  * Class DoraController
  * @package app\controllers
  */
-class DoraController extends Controller
+class DoraController extends DController
 {
 
     public $layout = false;
 
-    public function actions()
-    {
-        return [
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
-        ];
-    }
+
 
 
     //默认的首页
@@ -33,7 +25,13 @@ class DoraController extends Controller
         $this->view->params['default_nav'] = 'user/index';      //设置选中的导航栏
         $this->view->params['select_nav'] = 'user/manage';      //设置选中导航栏中的子项
         $this->view->params['title'] = '微博后台管理-流量分析';   //网页标题
-        $this->layout = 'dora';                                 //设置布局文件
+        $this->layout = 'hope';                                 //设置布局文件
         return $this->render('default_page');
+    }
+
+    //注册
+    public function actionRegister()
+    {
+
     }
 }

@@ -27,7 +27,18 @@ $config = [
             // send all mails to a file by default. You have to set
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
-            'useFileTransport' => true,
+            'useFileTransport' => false,
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.163.com',
+                'username' => 'dora_Miku@163.com',
+                'password' => 'chuyinwl070301',
+                'encryption' => 'tls'
+            ],
+            'messageConfig' => [
+                'charset' => 'UTF-8',
+                'from' => ['dora_Miku@163.com' => 'hope']
+            ]
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -38,7 +49,7 @@ $config = [
                 ],
             ],
         ],
-        'db' => [
+        'mysql' => [
             'class' => 'app\models\base\Mysql',
             'host' => \WeiBoConfig::$MYSQL_CONFIG['url']['host'],
             'port' => \WeiBoConfig::$MYSQL_CONFIG['url']['port'],

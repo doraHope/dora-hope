@@ -74,14 +74,19 @@ class Mysql extends Component
     }
 
 
-    protected function connect()
+    public function connect()
     {
         if (!self::$con instanceof \mysqli) {
-            self::$con = new \mysqli($this->host.':'.$this->port, $this->user, $this->password, $this->dbName);
-            if (self::$con->errno) {
-                throw new \Exception(sprintf("%s", time()));
+            try{
+                self::$con = new \mysqli($this->host.':'.$this->port, $this->user, $this->password, $this->dbName);
+                if (self::$con->errno) {
+                    throw new \Exception(sprintf("%s", time()));
+                }
+            } catch (\Exception $e) {
+                throw new $e;
             }
-        }
+
+    }
     }
 
     protected function db()
