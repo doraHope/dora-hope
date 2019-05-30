@@ -19,4 +19,9 @@ class WbUserLogin extends Mysql
 
     }
 
+    public function queryPID($key)
+    {
+        return parent::queryPID($key);
+    }
+
 }

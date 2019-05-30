@@ -13,46 +13,55 @@ class UserLogin extends Model
     private $password;
     private $verifyCode;
 
-    public function __set($name, $value)
+    public function __construct($user, $password, $verifyCode)
     {
-        switch ($name) {
-            case 'user':
-                $this->setUser($value);
-                break;
-            case 'password':
-                $this->setPassword($value);
-                break;
-        }
+        $this->user = $user;
+        $this->password = $password;
+        $this->verifyCode = $verifyCode;
     }
 
+//    public function __set($name, $value)
+//    {
+//        switch ($name) {
+//            case 'user':
+//                $this->setUser($value);
+//                break;
+//            case 'password':
+//                $this->setPassword($value);
+//                break;
+//        }
+//    }
+//
     public function __get($name)
     {
+        $value = '';
         switch ($name) {
             case 'user':
-                $this->getUser();
+                $value = $this->getUser();
                 break;
             case 'password':
-                $this->getPassword();
+                $value = $this->getPassword();
                 break;
             case 'verifyCode':
-                $this->getVerifyCode();
+                $value = $this->getVerifyCode();
         }
+        return $value;
     }
 
-    public function setUser($value)
-    {
-        $this->user = $value;
-    }
-
-    public function setPassword($value)
-    {
-        $this->password = $value;
-    }
-
-    public function setVerifyCode($value)
-    {
-        $this->verifyCode = $value;
-    }
+//    public function setUser($value)
+//    {
+//        $this->user = $value;
+//    }
+//
+//    public function setPassword($value)
+//    {
+//        $this->password = $value;
+//    }
+//
+//    public function setVerifyCode($value)
+//    {
+//        $this->verifyCode = $value;
+//    }
 
     public function getVerifyCode()
     {
@@ -72,8 +81,8 @@ class UserLogin extends Model
     public function rules()
     {
         return [
-            [['user', 'password', 'verifyCode'], 'require'],
-            ['verifyCode', 'captcha']
+            [['user', 'password', 'verifyCode'], 'required', 'message' => '登陆信息不能为空'],
+            ['verifyCode', 'captcha',  'captchaAction' => 'action/captcha']
         ];
     }
 }

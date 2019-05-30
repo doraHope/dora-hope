@@ -1,6 +1,7 @@
 <?php
 namespace app\common;
 
+use Yii;
 class WBCommon
 {
 
@@ -11,7 +12,7 @@ class WBCommon
             'code' => $retCode,
             'msg' => $retMessage,
             'data' => $retData
-        ], true));
+        ], JSON_UNESCAPED_UNICODE));
         Yii::$app->end();
     }
 

@@ -12,6 +12,7 @@ class SessionHandler
     /** session重写初始化方法
      *
      */
+
     public static function init()
     {
         $handler = new self;
@@ -23,6 +24,7 @@ class SessionHandler
             [$handler, 'destroy'],
             [$handler, 'gc']
         );
+        register_shutdown_function('session_write_close');
     }
 
     public function open($savePath, $sessionName)
@@ -37,7 +39,7 @@ class SessionHandler
     {
         //写入redis
         $session = serialize($this->param);
-        $this->handler->stringSet($this->sessionName, $session);
+        $this->handler->stringSet($this->sessionName, $session, 86400);
         return true;
     }
 
@@ -45,13 +47,12 @@ class SessionHandler
     {
         if(!$this->sessionName) {
             $this->sessionName = 'sess_'.$sessionId;
-            if(!$this->handler->stringGet($this->sessionName)) {
+            if(!($oldData = $this->handler->stringGet($this->sessionName))) {
                 $this->param['timestamp'] = time();
                 $this->handler->stringSet($this->sessionName, serialize($this->param), 86400);
+            } else {
+                $this->param = unserialize($oldData);
             }
-        }
-        if(!$this->param) {
-            return serialize([]);
         }
         return serialize($this->param);
     }

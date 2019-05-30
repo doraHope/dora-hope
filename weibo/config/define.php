@@ -5,3 +5,5 @@ define('NULL_THING', -1);       //在int中代表无意义值
 define('INT_DEFAULT', 0);       //int默认值
 
 define('WB_URL', 'http://zc.weibo.com');
+
+define('SALT', 'hope_for_you');

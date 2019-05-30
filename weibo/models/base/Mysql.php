@@ -85,19 +85,12 @@ class Mysql extends Component
             } catch (\Exception $e) {
                 throw new $e;
             }
-
-    }
+        }
     }
 
     protected function db()
     {
-        try {
-            $this->connect();
-            return self;
-        } catch (MysqlException $e) {
-            print('数据库加载出错');
-            \Yii::$app->end();
-        }
+        return self::$con;
     }
 
     public function setParams($config)
@@ -215,15 +208,55 @@ class Mysql extends Component
         return true;
     }
 
+    public function getInsertId()
+    {
+        return Mysql::$con->insert_id;
+    }
+
+    public function queryBySingleKey($type, $fields, $whereFiled, $op,  $whereValue)
+    {
+        $queryCol = [];
+        if(is_array($fields) && !empty($fields)) {
+            foreach ($fields as $_k => $_v) {
+                $queryCol[] = 'b.'.$_v;
+            }
+            $fields = implode(', ', $queryCol);
+        } else {
+            $fields = '*';
+        }
+        $SQL = $this->SQL;
+        switch ($type) {
+            case self::MYSQL_INT:
+                $this->SQL = sprintf(
+                    "select %s from %s where %s %s %s",
+                    $fields,
+                    $this->table,
+                    $whereFiled,
+                    $op,
+                    $whereValue
+                );
+                break;
+            case self::MYSQL_STRING:
+                $this->SQL = sprintf(
+                    "select %s from %s where %s %s '%s'",
+                    $fields,
+                    $this->table,
+                    $whereFiled,
+                    $op,
+                    addslashes($whereValue)
+                );
+                break;
+        }
+        $ret = $this->queryResult();
+        if(false === $ret) {
+            $this->SQL = $SQL;
+        }
+        return $ret;
+    }
+
 
     public function queryByKey($type, $field, $value, $fields)
     {
-//        try {
-//            $this->connect();
-//        } catch (MysqlException $e) {
-//            print('数据库加载出错');
-//            \Yii::$app->end();
-//        }
         $queryCol = [];
         if(is_array($fields) && !empty($fields)) {
             foreach ($fields as $_k => $_v) {
@@ -357,6 +390,22 @@ class Mysql extends Component
         return $this->queryResult();
     }
 
+    protected function queryPID($key)
+    {
+        $SQL = $this->SQL;
+        $this->SQL = sprintf('select max(%s) as id from %s for update', $key, $this->table);
+        $ret = $this->queryResult();
+        if(false === $ret) {
+            $this->SQL = $SQL;
+        }
+        if(!$ret) {
+            return [
+                $key => 1
+            ];
+        }
+        return $ret[0];
+    }
+
     /*++++++++++++++++++++ 查询end*/
 
     /*-------------------- 写相关*/
@@ -388,7 +437,7 @@ class Mysql extends Component
             if(self::MYSQL_INT === $item[0]) {
                 $values[] = intval($item[1]);
             } else {
-                $values[] = '\''.$item[1].'\'';
+                $values[] = '\''.addslashes($item[1]).'\'';
             }
         }
         return [
@@ -434,5 +483,23 @@ class Mysql extends Component
             $this->SQL = $SQL;
         }
         return $ret;
+    }
+
+    /*------------ 事务*/
+    public function transaction()
+    {
+        self::$con->autocommit(false);
+    }
+
+    public function commit()
+    {
+        self::$con->commit();
+        self::$con->autocommit(true);
+    }
+
+    public function rollback()
+    {
+        self::$con->rollback();
+        self::$con->autocommit(true);
     }
 }

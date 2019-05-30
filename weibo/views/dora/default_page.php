@@ -1,8 +1,6 @@
 <?php
     $this->params['css'] = ['default_page.css'];
-    
 ?>
-<!--<div class="pie"></div>-->
 <div class="left-nav">
     <ul class="nav-list">
         <li class="nav-item"><span class="active-nav_default">热门</span></li>

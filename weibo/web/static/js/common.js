@@ -33,7 +33,4 @@ $(function () {
         $(this).next().slideDown();
     })
 
-
-
-
 })

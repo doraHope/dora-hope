@@ -26,6 +26,7 @@ class DoraController extends DController
         $this->view->params['select_nav'] = 'user/manage';      //设置选中导航栏中的子项
         $this->view->params['title'] = '微博后台管理-流量分析';   //网页标题
         $this->layout = 'hope';                                 //设置布局文件
+//        $this->layout = false;
         return $this->render('default_page');
     }
 

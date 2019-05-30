@@ -1,60 +1,71 @@
 <?php
 
 
-namespace app\models\service;
+namespace app\models;
 
 
-class UserRegister
+use yii\base\Model;
+
+class UserRegister extends Model
 {
 
     private $user;
     private $password;
     private $email;
 
-    public function __set($name, $value)
+    public function __construct($user, $password, $email)
     {
-        switch ($name) {
-            case 'user':
-                $this->setUser($value);
-                break;
-            case 'password':
-                $this->setPassword($value);
-                break;
-            case 'email':
-                $this->setEmail($value);
-        }
+        $this->user = $user;
+        $this->password = $password;
+        $this->email = $email;
     }
+
+//    public function __set($name, $value)
+//    {
+//        switch ($name) {
+//            case 'user':
+//                $this->setUser($value);
+//                break;
+//            case 'password':
+//                $this->setPassword($value);
+//                break;
+//            case 'email':
+//                $this->setEmail($value);
+//        }
+//    }
 
     public function __get($name)
     {
+        $value = '';
         switch ($name) {
             case 'user':
-                $this->getUser();
+                $value = $this->getUser();
                 break;
             case 'password':
-                $this->getPassword();
+                $value = $this->getPassword();
                 break;
-            case 'verifyCode':
-                $this->getVerifyCode();
+            case 'email':
+                $value = $this->getEmail();
         }
+        return $value;
     }
 
-    public function setUser($value)
-    {
-        $this->user = $value;
-    }
+//    public function setUser($value)
+//    {
+//        $this->user = $value;
+//    }
+//
+//    public function setPassword($value)
+//    {
+//        $this->password = $value;
+//    }
+//
+//    public function setEmail($value)
+//    {
+//        $this->email = $value;
+//    }
 
-    public function setPassword($value)
-    {
-        $this->password = $value;
-    }
-
-    public function setEmail($value)
-    {
-        $this->email = $value;
-    }
-
-    public function getVerifyCode()
+    public function getEmail()
     {
         return $this->email;
     }
@@ -72,7 +83,7 @@ class UserRegister
     public function rules()
     {
         return [
-            [['user', 'password', 'email'], 'require'],
+            [['user', 'password', 'email'], 'required', 'message' => '注册信息不能为空'],
             ['email', 'email']
         ];
     }
