@@ -168,12 +168,23 @@ class Redis extends Component
         Redis::$db->lPush($key, $value);
     }
 
+    /**
+     * @param $key
+     * @param int $timeout
+     * @return array
+     */
+    public function listBPop($key, $timeout = 0)
+    {
+        return Redis::$db->blPop($key, $timeout);
+    }
+
     /** 推出列表
      * @param $key      键名
+     * @return mixed
      */
     public function listPop($key)
     {
-        Redis::$db->rPop($key);
+        return Redis::$db->rPop($key);
     }
 
     /** 从列表中获取一段范围的元素集合
@@ -354,15 +365,20 @@ class Redis extends Component
         return [$min, $max];
     }
 
+    public function zGetScoreByRange($key, $index)
+    {
+        $number = Redis::$db->sCard($key);
+    }
+
     /** 获取有序集合的最大值和最小值
      * @param $key          键名
      * @return array
      */
     public function zSetGetMaxAndMin($key)
     {
-        $number = Redis::$db->sCard($key);
+        $number = Redis::$db->zSize($key);
         if ($number > 0) {
-            $items = Redis::$db->zRange($key, 0, $number, true);
+            $items = Redis::$db->zRange($key, 0, $number, true);                //这里可能存在内存溢出，暂不考虑
             return $this->getMaxAndMin($items);
         }
         return [];
@@ -375,7 +391,7 @@ class Redis extends Component
      * @param bool $withScore 是否也取出score
      * @return array
      */
-    public function zSetRangeByRange($key, $start, $end, $withScore = false)
+    public function zSetByRange($key, $start, $end, $withScore = false)
     {
         return Redis::$db->zRange($key, $start, $end, $withScore);
     }

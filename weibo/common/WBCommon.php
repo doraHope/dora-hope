@@ -31,4 +31,9 @@ class WBCommon
         $text = WBCommon::_randomStr().'_'.time().'_'.$salt.'_hope';
         return substr(sha1($text), 8, 24);
     }
+
+    public static function hash($text)
+    {
+        return substr(sha1(substr(SALT, 4, 5).'_'.$text.'_'.substr(5, 4)), 4, 32);
+    }
 }
