@@ -153,7 +153,7 @@ class Mysql extends Component
             return [];
         }
         $arrRet = [];
-        while (!($row = $result->fetch_assoc())) {
+        while ($row = $result->fetch_assoc()) {
             $arrRet[] = $row;
         }
         return $arrRet;
@@ -213,47 +213,34 @@ class Mysql extends Component
         return Mysql::$con->insert_id;
     }
 
-    public function queryBySingleKey($type, $fields, $whereFiled, $op,  $whereValue)
+    public function queryByPkForExists($type, $field, $value)
     {
-        $queryCol = [];
-        if(is_array($fields) && !empty($fields)) {
-            foreach ($fields as $_k => $_v) {
-                $queryCol[] = 'b.'.$_v;
-            }
-            $fields = implode(', ', $queryCol);
-        } else {
-            $fields = '*';
-        }
         $SQL = $this->SQL;
         switch ($type) {
-            case self::MYSQL_INT:
-                $this->SQL = sprintf(
-                    "select %s from %s where %s %s %s",
-                    $fields,
-                    $this->table,
-                    $whereFiled,
-                    $op,
-                    $whereValue
-                );
-                break;
             case self::MYSQL_STRING:
                 $this->SQL = sprintf(
-                    "select %s from %s where %s %s '%s'",
-                    $fields,
+                    "select 1 from %s where %s = '%s' limit 0, 1",
                     $this->table,
-                    $whereFiled,
-                    $op,
-                    addslashes($whereValue)
+                    $field,
+                    $value
+                );
+                break;
+            case self::MYSQL_INT:
+                $this->SQL = sprintf(
+                    "select 1 from %s where %s = %d limit 0, 1",
+                    $this->table,
+                    $field,
+                    intval($value)
                 );
                 break;
         }
+
         $ret = $this->queryResult();
         if(false === $ret) {
             $this->SQL = $SQL;
         }
         return $ret;
     }
-
 
     public function queryByKey($type, $field, $value, $fields)
     {
@@ -268,30 +255,22 @@ class Mysql extends Component
         }
         $SQL = $this->SQL;
         switch ($type) {
-            case self::MYSQL_INT:
-                $this->SQL = sprintf(
-                    "select %s from (select %s from %s where %s = '%s') as a left join %s as b on a.%s = b.%s",
-                    $fields,
-                    field,
-                    $this->table,
-                    $field,
-                    $value,
-                    $this->table,
-                    $field,
-                    $field
-                );
-                break;
             case self::MYSQL_STRING:
                 $this->SQL = sprintf(
-                    "select %s from (select %s from %s where %s = %d) as a left join %s as b on a.%s = b.%s",
+                    "select %s from  %s where %s = '%s'",
                     $fields,
-                    field,
                     $this->table,
                     $field,
-                    intval($value),
+                    $value
+                );
+                break;
+            case self::MYSQL_INT:
+                $this->SQL = sprintf(
+                    "select %s from %s where %s = %d",
+                    $fields,
                     $this->table,
                     $field,
-                    $field
+                    intval($value)
                 );
                 break;
         }
@@ -306,28 +285,20 @@ class Mysql extends Component
     {
         $SQL = $this->SQL;
         switch ($type) {
-            case self::MYSQL_INT:
-                $this->SQL = sprintf(
-                    "select b.* from (select %s from %s where %s = '%s') as a left join %s as b on a.%s = b.%s limit 0, 1",
-                    field,
-                    $this->table,
-                    $field,
-                    $value,
-                    $this->table,
-                    $field,
-                    $field
-                );
-                break;
             case self::MYSQL_STRING:
                 $this->SQL = sprintf(
-                    "select b.* from (select %s from %s where %s = %d) as a left join %s as b on a.%s = b.%s limit 0, 1",
-                    field,
+                    "select b.* from %s where %s = '%s' limit 0, 1",
                     $this->table,
                     $field,
-                    intval($value),
+                    $value
+                );
+                break;
+            case self::MYSQL_INT:
+                $this->SQL = sprintf(
+                    "select b.* from %s where %s = %d limit 0, 1",
                     $this->table,
                     $field,
-                    $field
+                    intval($value)
                 );
                 break;
         }
