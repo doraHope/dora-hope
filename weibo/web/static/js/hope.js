@@ -1,7 +1,9 @@
 $(function(){
     const STYLE_URL = 'http://zc.weibo.com/static/';
-
+    const BASE_URL = 'http://zc.weibo.com/index.php';
+    const TAB_LIMIT = 2;
     let expand = false;
+    let goto_lock = false;  //页面跳转lock
 
     function change2img(pos) {
         $('.news-photo__link li').removeClass('news-photo__link--active');
@@ -65,6 +67,38 @@ $(function(){
         $(this).find('.options-item_link').removeClass('options-item_link--active');
     });
 
+    /*--------------------------------- 消息框*/
+    let tab_xl_content = [];           //存放请求的tab框内容
+
+    function ajax_request_tab() {
+
+    }
+    
+    //打开表情或者图像框
+    function switch_option_box(tab)
+    {
+        $('.expand-box').css('display', 'block');
+        $('.expand-content').find('.expand-tab').removeClass('expand-content_active');
+        $('.expand-content').find('.expand-tab').eq(tab).addClass('expand-content_active');
+    }
+
+    //选择表情或者图像
+    $('.wb-editor__options').on('click', '.option-item', function () {
+        let tab = $(this).index();
+        if(tab >= TAB_LIMIT) {
+            return;         //除了表情和图片暂时不支持其它
+        }
+        switch_option_box(tab);
+        let padding_left_length = tab*80;
+        $('.expand-outer').css('paddingLeft', padding_left_length+'px');
+    })
+
+    //关闭扩展框
+    $('.expand-box').on('click', '.expand-close', function () {
+        $('.expand-box').css('display', 'none');
+        $('.expand-content').find('.expand-tab').removeClass('expand-content_active');
+    })
+
     //消息发送框动态变化
     $('.wb-editor__input').keyup(function () {
         let length = $(this).val().length;
@@ -86,5 +120,63 @@ $(function(){
             expand = false;
         }
     })
+
+
+
+
+    /*---------------------------------------------- 登陆/注册窗口*/
+    function User(username, password) {
+        this.username = username;
+        this.password = password;
+    }
+    function login_verify(user) {
+
+    }
+
+    function register(email) {
+        $.post(BASE_URL+'action/register', {mail: email}, function (status, data) {
+            if(status != 'success') {
+                return;
+            }
+            console.log(data);
+        })
+    }
+
+    $('.login-window').on('click', '.register-btn', function () {
+        $('.login-register').find('a').text('已经注册完成~');
+        $(this).text('返回登陆');
+        $('.login-input_item').eq(0).addClass('input_hide');
+        $('.login-input_item').eq(1).addClass('input_hide');
+        $('.login-input_item').eq(2).removeClass('input_hide');
+        $('.login-btn').text('注册');
+        $('.login-btn').addClass('to-register');
+        $('.login-btn').removeClass('login-btn');
+    })
+
+    $('.login-window').on('click', '.login-btn', function () {
+        if(goto_lock) {
+            return;
+        }
+        let username = $.trim($('.wb-user_input').val());
+        let password = $.trim($('.wb-pass_input').val());
+        if(username == '' || password == '' || username == undefined || password == undefined) {
+            return;
+        }
+        login_verify(new User(username, password));
+    })
+
+    $('.login-window').on('click', '.to-register', function () {
+        let mail = $.trim($('.wb-mail_input').val());
+        if(mail == '' || mail == undefined) {
+            return;
+        }
+        register(mail);
+    })
+
+
+
+
+
+
 
 })

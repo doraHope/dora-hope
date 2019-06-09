@@ -142,10 +142,11 @@ class Redis extends Component
      * @param $key      键名
      * @param $value    键值
      * @param int $expired
+     * @return mixed
      */
     public function stringSet($key, $value, $expired = 0)
     {
-        Redis::$db->set($key, $value, $expired);
+        return Redis::$db->set($key, $value, $expired);
     }
 
     /** 获取键值
