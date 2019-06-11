@@ -10,12 +10,17 @@ use RedisException;
 class DController extends Controller
 {
 
+    public $redis;
+    public $mysql;
+    public $session;
+
     public function beforeAction($action)
     {
         //连接redis
         try{
             $redis = Yii::$app->get('redis');
             $redis->connect();
+            $this->redis = $redis;
         } catch (RedisException $ex) {
             Yii::$app->end();
         } catch (\Exception $ex2) {
@@ -25,9 +30,11 @@ class DController extends Controller
         try{
             $mysql = Yii::$app->get('mysql');
             $mysql->connect();
+            $this->mysql = $mysql;
         }catch (\Exception $e) {
             Yii::$app->end();
         }
+        $this->session = Yii::$app->session;
         //使用redis存储session
         SessionHandler::init();
         session_start();

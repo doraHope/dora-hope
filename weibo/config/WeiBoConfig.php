@@ -66,4 +66,8 @@ class WeiBoConfig
         'TODAY_LOGIN_USER_LIST' => 'today:login:list'
     ];
 
+    public static $CAN_UPLOAD_FILE_TYPE = [
+        'png', 'jpg', 'jpeg', 'git'
+    ];
+
 }

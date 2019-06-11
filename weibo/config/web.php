@@ -32,7 +32,7 @@ $config = [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.163.com',
                 'username' => 'dora_Miku@163.com',
-                'password' => 'chuyinwl070301',
+                'password' => 'hopeforyou070301',
                 'encryption' => 'tls'
             ],
             'messageConfig' => [
