@@ -8,6 +8,10 @@ ul, ol{
 }
 
 
+body, html{
+    width: 100%;
+    height: 100%;
+}
 
 body{
     position: relative;
@@ -15,7 +19,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: rgb(137, 190, 178);
+    background: #fff;
 }
 
 a{
@@ -76,7 +80,8 @@ a, span{
 /*-------------- 主体*/
 #main{
     width: 100%;
-    background: #fff;
+    height: 100%;
+    padding-bottom: 72px;
 }
 
 
@@ -186,6 +191,8 @@ a, span{
     display: flex;
     flex-direction: row;
     margin-top: 76px;
+    padding-bottom: 76px;
+    box-sizing: border-box;
 }
 
 /*!*- 左侧导航栏*!*/
@@ -658,8 +665,8 @@ a, span{
 
 /*------------------ 页脚*/
 .footer{
-    margin-top: 60px;
-    padding-bottom: 12px;
+    position: fixed;
+    bottom: 12px;
 }
 
 /*------------------ 公用样式*/

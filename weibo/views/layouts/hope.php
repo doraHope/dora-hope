@@ -6,9 +6,11 @@ $this->params['common'] = '@app/views/common/com_';
 <head>
     <title>hope--我愿将我的所有都给你</title>
     <link rel="stylesheet" href="<?=WB_URL.'/static/css/hope.css' ?>">
-    <?php foreach ($this->params['css'] as $css): ?>
-        <link rel="stylesheet" href="<?=WB_URL.'/static/css/'.$css?>">
-    <?php endforeach; ?>
+    <?php  if(isset($this->params['css']) && !empty($this->params['css'])): ?>
+        <?php foreach ($this->params['css'] as $css): ?>
+            <link rel="stylesheet" href="<?=WB_URL.'/static/css/'.$css?>">
+        <?php endforeach;?>
+    <?php endif; ?>
 </head>
 <body>
 <div id="main" class="flex-column__v--center">
@@ -57,5 +59,10 @@ $this->params['common'] = '@app/views/common/com_';
 </div>
 <script src="<?=WB_URL.'/static/js/jquery.min.js' ?>"></script>
 <script src="<?=WB_URL.'/static/js/hope.js' ?>"></script>
+<?php if(isset($this->params['js']) && !empty($this->params['js'])): ?>
+<?php foreach ($this->params['js'] as $js): ?>
+    <script src="<?=WB_URL.'/static/js/'.$js?>"></script>
+<?php endforeach; ?>
+<?php endif;?>
 </body>
 </html>

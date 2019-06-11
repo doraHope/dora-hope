@@ -1,5 +1,6 @@
 <?php
     $this->params['css'] = ['miku_register.css'];
+    $this->params['js'] = ['miku_register.js'];
     $this->params['title'] = '用户注册';
 ?>
 
@@ -18,6 +19,6 @@
             <img src="<?=WB_URL.'/static/imgs/login-pass.png' ?>" alt="">
             <input type="password" class="wb-input wb-pass_input--confirm" placeholder="确认密码">
         </div>
-        <span class="login-btn">登陆</span>
+        <span class="register-btn">注册</span>
     </div>
 </div>

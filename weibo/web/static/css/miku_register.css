@@ -1,6 +1,11 @@
+body{
+    background: radial-gradient(black, transparent);
+}
+
+
 /*-- 登陆外层窗口*/
 .login-window{
-    width: 100%;
+    width: 360px;
     padding: 14px;
     box-sizing: border-box;
     background: #f2f2f5;
@@ -19,7 +24,7 @@
     box-sizing: border-box;
 }
 
-.login-top, .login-input_item, .login-options, .login-btn, .login-register, .to-register{
+.login-top, .login-input_item, .login-options, .register-btn, .login-register, .to-register{
     margin-bottom: 14px;
 }
 
@@ -63,7 +68,7 @@
     box-sizing: border-box;
 }
 
-.login-btn, .to-register{
+.register-btn{
     width: 100%;
     height: 32px;
     display: flex;
@@ -82,9 +87,4 @@
 
 .login-register a{
     font-size: 12px;
-}
-
-.register-btn{
-    color: #ff8140;
-    cursor: pointer;
 }

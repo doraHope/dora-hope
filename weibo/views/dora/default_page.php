@@ -34,15 +34,15 @@
         <header class="wb-editor__top">hope for you!</header>
         <textarea title="hope输入框" style="resize: none;margin-top: 7px;overflow-wrap: break-word;padding: 7px 7px;box-sizing: border-box;color: #333;font-family: '黑体';box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.15) inset;" class="wb-editor__input" name="wb-editor" id="wb-editor" cols="30" rows="10"></textarea>
         <div class="wb-editor__options">
-            <div class="option-item">
+            <div class="option-item option-xl">
                 <img class="options-item_img" src="<?=WB_URL.'/static/imgs/wb-editor_xl.png' ?>">
                 <a class="options-item_link">表情</a>
             </div>
-            <div class="option-item">
+            <div class="option-item option-image">
                 <img class="options-item_img" src="<?=WB_URL.'/static/imgs/wb-editor_img.png' ?>">
                 <a class="options-item_link">图片</a>
             </div>
-            <div class="option-item">
+            <div class="option-item option-video">
                 <img class="options-item_img" src="<?=WB_URL.'/static/imgs/wb-editor_video.png' ?>">
                 <a class="options-item_link">视频</a>
             </div>
@@ -53,7 +53,7 @@
 
                         </div>
                         <div class="expand-content">
-                            <div class="expand-xl" style="display: none;">
+                            <div class="expand-tab expand-xl">
                                 <div class="xl-type_list">
                                     <ul class="xl-type_list-options">
                                         <li class="xl-type_list-option xl-type_list-option--active"></li>
@@ -126,8 +126,8 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="expand-image" style="display: none;">
-                                <header class="image_header">本地上传</header>
+                            <div class="expand-tab expand-image">
+                                <header class="image_header" style="display: none">本地上传</header>
                                 <div class="image_list">
                                     <ul class="image_list-row">
                                         <li class="image_item"></li>
@@ -135,7 +135,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="expand-video">
+                            <div class="expand-tab expand-video">
                                 <header class="video-title">上传普通视频</header>
                                 <span class="video-tip">请上传4GB以下视频</span>
                                 <div class="video-upload_box"></div>
@@ -189,7 +189,7 @@
     <!--            暂时用不到-->
     <div class="login-window">
         <div class="login-box">
-            <header class="login-top">账号安全</header>
+            <header class="login-top">账号</header>
             <div class="login-input_item">
                 <img src="<?=WB_URL.'/static/imgs/login-user.png' ?>" alt="">
                 <input type="text" class="wb-input wb-user_input" placeholder="邮箱/手机号/会员号">
@@ -198,9 +198,13 @@
                 <img src="<?=WB_URL.'/static/imgs/login-pass.png' ?>" alt="">
                 <input type="password" class="wb-input wb-pass_input" placeholder="请输入密码">
             </div>
-            <div class="login-options"></div>
+            <div class="login-input_item input_hide">
+                <img src="<?=WB_URL.'/static/imgs/mail.svg' ?>" alt="">
+                <input type="text" class="wb-input wb-mail_input" placeholder="请输入邮箱号">
+            </div>
+<!--            <div class="login-options"></div>-->
             <span class="login-btn">登陆</span>
-            <div class="login-register"><a>还没微博? <a class="register-btn" href="<?=WB_URL.'/index.php/user/register' ?>">立即注册</a></a></div>
+            <div class="login-register"><a>还没微博? <a class="register-btn">立即注册</a></a></div>
         </div>
     </div>
     <!--            微博新鲜事儿-->
