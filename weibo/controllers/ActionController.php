@@ -10,6 +10,7 @@ use app\common\WBMessageCommon;
 use app\common\WBRedisHandler;
 use app\models\active_record\WbBase;
 use app\models\active_record\WbReply;
+use app\models\active_record\WbUser;
 use app\models\active_record\WbUserLogin;
 use app\models\service\Email;
 use app\models\UserLogin;
@@ -100,56 +101,56 @@ class ActionController extends DController
     }
 
     /**
-     * 用户注册
-     * @throws \yii\base\InvalidConfigException
+     * 用户注册成功后，初始化用户信息到数据库
      */
-    public function actionRegisterLogin()
+    public function actionRegisterVerify()
     {
         $app = Yii::$app;
-        $strUser = addslashes($app->getRequest()->post('user', ''));
+        $strNickname = addslashes($app->getRequest()->post('nickname', ''));
+        $strMail = addslashes($app->getRequest()->post('mail', ''));
         $strPass = addslashes($app->getRequest()->post('password', ''));
-        $strEmail = addslashes($app->getRequest()->post('email', ''));
-        $uid = -1;
-        $modelUserRegister = new UserRegister($strUser, $strPass, $strEmail);
+        $modelUserRegister = new UserRegister($strMail, $strPass, $strNickname);
+        //传参合法性校验
         if(!$modelUserRegister->validate()) {
             if($modelUserRegister->hasErrors()) {
-                WBCommon::apiResponse(1, current($modelUserRegister->getErrors())[0]);
+                WBCommon::apiResponse(FAIL, current($modelUserRegister->getErrors())[0]);
             }
         }
-        //向数据库插入一条记录
-        $modelUserLogin = new WbUserLogin();
-        //开启事务且加锁的原因比较简单，避免事务处理中插入同一id
-        $modelUserLogin->transaction();
-        try{
-            $retID = $modelUserLogin->queryPID('uid');
-            if(false === $retID) {
-                WBCommon::apiResponse(1, '获取用户id失败');
-            }
-            $timestamp = time();
-            $strPass = WBCommon::hash($strPass);
-            $ret = $modelUserLogin->write([
-                'uid' => [0, $retID['uid']],
-                'user' => [1, $strUser],
-                'password' => [1, $strPass],
-                'pre_login_time' => [0, $timestamp],
-                'next_login_time' => [0, $timestamp]
-            ]);
-            if(!$ret) {
-                WBCommon::apiResponse(1, '内部错误', []);
-            }
-            $modelUserLogin->commit();
-            $uid = $retID['uid'];
-        } catch (\Exception $e) {
-            WBCommon::apiResponse(1, '数据库写入失败', []);
+        $sessMail = $this->session->get('mail');
+        if(!$sessMail || $strMail !== $sessMail) {
+            WBCommon::apiResponse(FAIL, '邮箱不为注册邮箱');
+        }
+        $sessToken = $this->session->get('token');
+        $rToken = $this->redis->get(REGISTER_SUCC.$sessMail);
+        if(!$rToken || $sessToken !== $rToken) {
+            WBCommon::apiResponse(FAIL, 'token 过期，请重新注册!');
         }
 
-        $link_ = WBCommon::createToken('hope for you!');
-        $redis = $app->get('redis');
-        $redis->stringSet($link_, $uid, 3600*12);
-        //发送一条邮件
-        $link = WB_URL.'/index.php/dora/succ2register/'.$link_;
-        WBCommon::apiResponse(0, 'success', [$link]);
-        Email::send($modelUserRegister->getEmail(), 'glad to tell you our register link!', $link);
+        //向数据库插入一条记录
+        $modelUser = new WbUser();
+        //开启事务且加锁的原因比较简单，避免事务处理中插入同一id
+        $modelUser->transaction();
+        try{
+            //将用户数据库初始化到数据库中
+            $uid = $modelUser->queryPID('id');
+            if(!$uid) {
+                //消回用户注册token
+                $modelUser->rollback();
+                WBCommon::apiResponse('注册失败, 请稍后重新注册');
+            }
+            $timestamp = time();
+            $modelUser->write([
+                'uid' => [TYPE_INT, $uid],
+                'openid' => [TYPE_STRING, WBCommon::createOpenid(SALT, $sessMail)],
+                'birthday' => $timestamp,
+                'register_time' => $timestamp
+            ]);
+
+
+        } catch (\Exception $ex) {
+            $modelUser->rollback();
+            WBCommon::apiResponse('注册失败, 请稍后重新注册');
+        }
     }
 
     /**

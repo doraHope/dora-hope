@@ -13,6 +13,10 @@
         </div>
         <div class="login-input_item">
             <img src="<?=WB_URL.'/static/imgs/login-pass.png' ?>" alt="">
+            <input type="text" class="wb-input wb-nickname" placeholder="输入昵称">
+        </div>
+        <div class="login-input_item">
+            <img src="<?=WB_URL.'/static/imgs/login-pass.png' ?>" alt="">
             <input type="password" class="wb-input wb-pass_input" placeholder="输入密码">
         </div>
         <div class="login-input_item">

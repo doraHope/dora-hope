@@ -361,7 +361,7 @@ class Mysql extends Component
         return $this->queryResult();
     }
 
-    protected function queryPID($key)
+    public function queryPID($key)
     {
         $SQL = $this->SQL;
         $this->SQL = sprintf('select max(%s) as id from %s for update', $key, $this->table);

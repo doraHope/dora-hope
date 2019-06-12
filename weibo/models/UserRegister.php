@@ -9,15 +9,15 @@ use yii\base\Model;
 class UserRegister extends Model
 {
 
-    private $user;
     private $password;
     private $email;
+    private $nickname;
 
-    public function __construct($user, $password, $email)
+    public function __construct($email, $password, $nickname)
     {
-        $this->user = $user;
         $this->password = $password;
         $this->email = $email;
+        $this->nickname = $nickname;
     }
 
 //    public function __set($name, $value)
@@ -38,8 +38,8 @@ class UserRegister extends Model
     {
         $value = '';
         switch ($name) {
-            case 'user':
-                $value = $this->getUser();
+            case 'nickname':
+                $value = $this->getNickname();
                 break;
             case 'password':
                 $value = $this->getPassword();
@@ -65,14 +65,14 @@ class UserRegister extends Model
 //        $this->email = $value;
 //    }
 
+    public function getNickname()
+    {
+        return $this->nickname;
+    }
+
     public function getEmail()
     {
         return $this->email;
-    }
-
-    public function getUser()
-    {
-        return $this->user;
     }
 
     public function getPassword()
@@ -83,7 +83,7 @@ class UserRegister extends Model
     public function rules()
     {
         return [
-            [['user', 'password', 'email'], 'required', 'message' => '注册信息不能为空'],
+            [['password', 'email', 'nickname'], 'required', 'message' => '注册信息不能为空'],
             ['email', 'email']
         ];
     }
