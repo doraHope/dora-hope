@@ -287,7 +287,7 @@ class Mysql extends Component
         switch ($type) {
             case self::MYSQL_STRING:
                 $this->SQL = sprintf(
-                    "select b.* from %s where %s = '%s' limit 0, 1",
+                    "select * from %s where %s = '%s' limit 0, 1",
                     $this->table,
                     $field,
                     $value
@@ -295,7 +295,7 @@ class Mysql extends Component
                 break;
             case self::MYSQL_INT:
                 $this->SQL = sprintf(
-                    "select b.* from %s where %s = %d limit 0, 1",
+                    "select * from %s where %s = %d limit 0, 1",
                     $this->table,
                     $field,
                     intval($value)
@@ -307,7 +307,7 @@ class Mysql extends Component
         if(false === $ret) {
             $this->SQL = $SQL;
         }
-        return $ret;
+        return $ret[0];
     }
 
     public function queryOneByWhere($where, $field)
@@ -327,7 +327,7 @@ class Mysql extends Component
         if(false === $ret) {
             $this->SQL = $SQL;
         }
-        return $ret;
+        return $ret[0];
     }
 
     public function queryListByWhere($where, $field, $offset, $length)
@@ -351,7 +351,7 @@ class Mysql extends Component
         if(false === $ret) {
             $this->SQL = $SQL;
         }
-        return $ret;
+        return $ret[0];
     }
 
     public function queryWithLock()

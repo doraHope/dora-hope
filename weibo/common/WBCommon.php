@@ -39,6 +39,6 @@ class WBCommon
 
     public static function createOpenid($salt, $content)
     {
-        return 'HOPE_F'.substr(sha1($salt.'_'.time().$content), 13, 35);
+        return 'HOPE_'.substr(sha1($salt.'_'.time().$content), 13, 23);
     }
 }

@@ -7,12 +7,12 @@ $(function () {
     }
 
     let re_register_lock = false;
-    function ajax_register(passwd) {
+    function ajax_register(passwd, nick, email) {
         if(re_register_lock) {
             return;
         }
         re_register_lock = true;
-        $.post(BASE_URL+'/action/register-login', {password: passwd}, function (data, status) {
+        $.post(BASE_URL+'/action/register-verify', {password: passwd, nickname: nick, mail: email}, function (data, status) {
 
         })
     }
@@ -40,7 +40,10 @@ $(function () {
     $('.login-window').on('click', '.register-btn', function () {
         let pass = $.trim($('.wb-pass_input').val());
         let re_pass = $.trim($('.wb-pass_input--confirm').val());
-        if(pass == '' || pass == undefined) {
+        if($.trim($('.wb-nickname').val()) == '' || $.trim($('.wb-nickname').val()) == undefined) {
+            input_error($('.wb-nickname'), '');
+            return;
+        }else if(pass == '' || pass == undefined) {
             input_error($('.wb-pass_input'), '');
         } else if(re_pass == '' || re_pass == undefined) {
             input_error($('.wb-pass_input--confirm'), '');
@@ -52,7 +55,7 @@ $(function () {
             alert('两次密码输入不一样');
             return;
         }
-        ajax_register(pass);
+        ajax_register(pass, $.trim($('.wb-nickname').val()), $('.wb-input_mail').val());
     })
 
     $('.login-window').on('click', '.input_error', function () {

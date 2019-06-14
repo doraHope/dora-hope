@@ -112,11 +112,16 @@ $(function () {
         this.password = password;
     }
     function login_verify(user) {
-
+        $.post(BASE_URL+'/action/login-verify', {username: user.username, password: user.password}, function (status, data) {
+            if(status != 'success') {
+                return;
+            }
+            console.log(data);
+        })
     }
 
     function register(email) {
-        $.post(BASE_URL+'action/register', {mail: email}, function (status, data) {
+        $.post(BASE_URL+'/action/register', {mail: email}, function (status, data) {
             if(status != 'success') {
                 return;
             }
