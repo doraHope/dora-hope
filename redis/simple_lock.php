@@ -1,4 +1,9 @@
 <?php
+/*---------------------- 使用创建锁key代替watch*/
+/**
+ * @define lock的定义，对商城商品进行加索
+ */
+
 /*----------------- 常量定义*/
 define('USER', 'user:');
 define('INVENTORY', 'inventory:');
@@ -9,6 +14,36 @@ function log_($message)
 {
     printf($message.PHP_EOL);
     sleep(1);
+}
+
+/** 这个简单加锁可能出现的问题
+ * @q1: 因为创建锁和给锁+生存时间并不是一个原子操作，故存在当锁创建后，进程就中断了，而没能成功为锁添加生存时间
+ *      (新版本的redis已经将这两个操作合并为一个原子操作了)， 那么其它进程将永远获取不得该锁，而白白等待
+ * @q2: 持有锁的进程因为操作时间过长而导致所自动释放，这里就有可能会出现两个问题：
+ *      1、操作时间过长，锁自动释放了，其它进程同样获取了锁，破坏了加锁的本意（加锁是为了让解决并发中可能产生的临界资源竞争问题，同一个临界资源在任何时间上都只允许一个进程在访问）
+ *      2、进程a操作时间过长，其它进程b重新获取了该锁，而a并不知道b已经获取了锁，却释放了b获取的锁，然后让该锁成为一个空闲资源，重新被竞争
+ */
+function getKey($handler, $key, $value, $limited)
+{
+    $start_ = time();
+    try{
+        while(time() - $start_ < $limited) {
+            $ret = $handler->setNx($key, $value);
+            if($ret) {
+                $handler->setTimeout($key, $limited);
+                return true;
+            }
+            usleep(100);
+        }
+        return false;
+    } catch(Exception $ex) {
+        return false;
+    }
+}
+
+function delKey($handler, $key) 
+{
+    $handler->delete($key);
 }
 
 function can_buy($handler, $buyer, $item)
@@ -48,7 +83,12 @@ function can_sell($handler, $user, $item)
         case 'b':   //买家逻辑
         {
             $seller = (explode('.', $item))[1];
-            $redis->watch([USER.$user, INVENTORY.$user, MARKET]);
+            if(!getKey($redis, $item, $user, 3)) {
+                //log 1-- [购买操作] 超时
+                log_('[购买操作] 超时');
+                break;
+            }
+            $redis->watch([USER.$user]);
             //在正式进入购买之前，前提条件有二： 商城中的商品确实存在；钱包中有足够的钱进行购买
             $ret = can_buy($redis, $user, $item);
             if($ret) {
@@ -66,6 +106,7 @@ function can_sell($handler, $user, $item)
                     log_('[购买操作] 卖家以付款，商品进入买家仓库');
                     //log 3-- [购买操作] 卖家以付款，商品进入买家仓库
                     $ret = $redis->exec();
+                    delKey($redis, $item);
                     if(false === $ret) {
                         log_('[购买操作] 中断');
                     } else {
@@ -88,7 +129,15 @@ function can_sell($handler, $user, $item)
         {
             $price = 99;
             $put = $item.'.'.$user;                //当为卖家执行时，传入参数仅为商品代号
-            $redis->watch([INVENTORY.$user]);
+            if(!getKey($redis, INVENTORY.'lock:'.$put, $user, 3)) {
+                log_('[出售操作] 超时');
+                break;
+            }
+            /**
+             * @why: 买家为什么还需要watch自己的钱包，而卖家则取消了对自己仓库的watch，
+             *       买家的购买操作成功的前提有二，而卖家上传商品到上传的前提仅有一，getKey就已经将自己仓库的物品的操作用锁限制了
+             */
+            // $redis->watch([INVENTORY.$user]);
             //正式出售商品前的逻辑有一(因为暂时考虑商城中可能出现同名商品)：卖家仓库中是否有该商品
             $ret = can_sell($redis, $user, $item);
             if($ret) {
@@ -103,6 +152,7 @@ function can_sell($handler, $user, $item)
                     //log 3-- [商品出售] 商品从卖家仓库中划去
                     log_('[商品出售] 商品从卖家仓库中划去');
                     $ret = $redis->exec();
+                    delKey($redis, INVENTORY.'lock:'.$put);
                     //log 4-- [商品出售]
                     if(false === $ret) {
                         log_('[商品出售] 出售中断');
@@ -122,6 +172,3 @@ function can_sell($handler, $user, $item)
         }
         break;
     }
-
-    
-
