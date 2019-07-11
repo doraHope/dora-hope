@@ -16,7 +16,7 @@ class RedisBase
     private static $handler;       //redis操作句柄
     protected $key;         //redis操作key
 
-    public function __construct($key, $host, $port, $timeout = RedisConfig::REDIS_CONNECT_TIME_OUT, $reTryTimeout = RedisConfig::REDIS_CONNECT_RE_TRY_TIMEOUT)
+    public function __construct($key, $host = RedisConfig::DEFAULT_HOST, $port = RedisConfig::DEFAULT_PORT, $timeout = RedisConfig::REDIS_CONNECT_TIME_OUT, $reTryTimeout = RedisConfig::REDIS_CONNECT_RE_TRY_TIMEOUT)
     {
         if (!self::$handler && !(self::$handler instanceof Redis)) {
             self::$handler = new Redis();
@@ -91,6 +91,32 @@ class RedisBase
     public static function sour()
     {
         return self::$handler;
+    }
+
+    public static function multi($name, $level = 0)
+    {
+        $key = time().rand(0, 9999);
+        $stringKey = srpintf('lock:%s:%s', $name, $level);
+        $ret = self::$handler->setNx($stringKey, $key);
+        if(!$ret) {
+            if(!self::$handler->ttl($stringKey)) {
+                self::$handler->del($stringKey);
+            }
+            return false;
+        } else {
+            self::$handler->expire($stringKey, LOCK_TIMEOUT_SLOW);
+        }
+        self::$handler->multi();
+        return $key;
+    }
+
+    public static function exec($name, $key, $level = 0) 
+    {
+        $ret = self::$handler->get(srpintf('lock:%s:%s', $name, $level));
+        if(!$ret && strval($key) !== strval($ret)) {
+            return LOCK_IS_NOT_ME;
+        }
+        return self::$handler->exec();
     }
 
 }

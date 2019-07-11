@@ -23,29 +23,15 @@ class DataUtil
             if($retCode) {
                 $ret = $retCode;
             }
-        }
+        }    
         return $ret;
     }
 
     public static function charMin($chr, $encode = false)
     {
         $length = strlen($chr);
-        if($length > 1) {
-            $ascii = ord($chr[$length-2])-1;
-            //不考虑最后一个字节码小于0的情况
-            if($ascii <= 0) {
-                return false;
-            }
-            $n_chr = chr($ascii);
-            $chr[$length-2] = $n_chr;
-            $chr[$length-1] = chr(255);
+        if($length <= 1) {
             $ret = $chr;
-            if($encode) {
-                $retCode = iconv('utf-8', $encode, $chr);
-                if($retCode) {
-                    $ret = $retCode;
-                }
-            }
         } else {
             $ascii = ord($chr[$length-1])-1;
             //不考虑最后一个字节码小于0的情况
@@ -61,7 +47,7 @@ class DataUtil
                 if($retCode) {
                     $ret = $retCode;
                 }
-            }
+            }  
         }
         return $ret;
     }

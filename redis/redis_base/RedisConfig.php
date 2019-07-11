@@ -23,4 +23,7 @@ class RedisConfig
     const DATA_CHANGE_TYPE_INCR = 1;                          //值递增
     const DATA_CHANGE_TYPE_DECR = 2;                           //值递减
 
+    const DEFAULT_HOST = '127.0.0.1';                   //redis服务器ip
+    const DEFAULT_PORT = '6379';                        //redis服务器port
+
 }

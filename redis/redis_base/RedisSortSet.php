@@ -15,6 +15,9 @@ class RedisSortSet extends RedisBase
 
     public function rem($items)
     {
+        if(!is_array($items)) {
+            $items = [$items];
+        }
         $command = ParamsUtil::getEvalWithSingleArgs('self::sour()->zRem', array_merge([$this->key], $items));
         $ret = eval($command);
         return $ret;
@@ -58,7 +61,7 @@ class RedisSortSet extends RedisBase
     public function rangeByScore($min, $max, $limit = [], $withScore = false)
     {
         if($limit) {
-            return self::sour()->zRangeByScore($this-key(), $min, $max, [
+            return self::sour()->zRangeByScore($this->key, $min, $max, [
                 'limit' => $limit,
                 'withscores' => $withScore
             ]);

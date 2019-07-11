@@ -2,6 +2,7 @@
 namespace app\example_1;
 
 use app\base\DataUtil;
+use app\base\Log;
 use app\base\Response;
 use app\redis\RedisSortSet;
 
@@ -26,25 +27,28 @@ class InputMatching
         return $this->sour->add($item, $score);
     }
 
-    private function _score($item)
+    private function _rem($item)
     {
-        return $this->sour->score($item);
+        return $this->sour->rem($item);
     }
 
     public function matching($input)
     {
-        $startChr = DataUtil::charMin($input);
-        $endChr = DataUtil::charMax($input);
+        $log = new Log('/var/www/dora/log/redis/example1.log');
+        $log->log('type 1 => '.$input);
+        $startChr = '['.$input;
+        $log->log('type 2 => '.$startChr);
+        $endChr = '('.DataUtil::charMax($input);
+        $log->log('type 3 => '.$endChr);
         $this->_insert($startChr, 0);
         $this->_insert($endChr, 0);
-        $scoreStart = $this->_score($startChr);
-        $scoreEnd = $this->_score($endChr);
-        $result = $this->sour->rangeByScore($scoreStart, $scoreEnd, [0, self::MATCH_RESULT_LENGTH]);
-        if($result) {
+        $result = $this->sour->rangeByLex($startChr, $endChr, 0, 20);
+        $this->_rem($startChr);
+        $this->_rem($endChr);
+        if(false !== $result) {
             Response::retJson(0, 'success', $result);
         }
         Response::retJson(1, 'fail');
-
     }
 
 
