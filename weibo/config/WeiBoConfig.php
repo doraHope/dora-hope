@@ -3,7 +3,9 @@
 class WeiBoConfig
 {
 
-    public static $lOGIN_LOAD_LIMIT = 1000;
+    public static $LOGIN_LOAD_LIMIT = 1000;
+
+    public static $PER_LOAD_WB = 10;
 
     public static $CONTROL_ACTION = [
         '网站流量' => [
@@ -68,6 +70,22 @@ class WeiBoConfig
 
     public static $CAN_UPLOAD_FILE_TYPE = [
         'png', 'jpg', 'jpeg', 'git'
+    ];
+
+    //微博不同事件对应不同的队列集合
+    public static $EVENT_QUEUES = [
+        WB_EVENT_WEI_BO => [
+
+        ],
+        WB_EVENT_COMMENT => [
+
+        ],
+        WB_EVENT_REPLY => [
+
+        ],
+        WB_EVENT_LIKE => [
+
+        ]
     ];
 
 }

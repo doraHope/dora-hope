@@ -4,6 +4,10 @@
 namespace app\models\base;
 
 
+/**
+ * 用户登陆数据统计基础算法类
+ * @package app\models\base
+ */
 class LoginAnalyze
 {
 

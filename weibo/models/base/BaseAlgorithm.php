@@ -3,7 +3,8 @@
 
 namespace app\models\base;
 
-/** 该类主要用于数据统计方面
+/**
+ * 基础算法类，提供基本算法服务
  * Class BaseAlgorithm
  * @package app\models\base
  */

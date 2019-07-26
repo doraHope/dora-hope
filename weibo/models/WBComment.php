@@ -9,9 +9,7 @@ use yii\base\Model;
 class WBComment extends Model
 {
 
-    private $wbId;
-    private $openId;
-    private $comment;
+
 
     public function rules()
     {

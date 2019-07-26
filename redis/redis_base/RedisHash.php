@@ -44,12 +44,14 @@ class RedisHash extends RedisBase
         return parent::sour()->hMSet($this->key, $params);
     }
 
-    public function hIncr($h_k, $value = RedisConfig::DEFAULT_DATA_INT)
+    public function rem($key) 
     {
-        if ($value) {
-            return parent::sour()->hIncrBy($this->key, $h_k, $value);
-        }
-        return true;
+        return parent::sour()->hDel($this->key, $key);
+    }
+
+    public function hIncr($h_k, $value = RedisConfig::DEFAULT_DATA_INT_USEFUL)
+    {
+        return parent::sour()->hIncrBy($this->key, $h_k, $value);
     }
 
     public function hIncrByFloat($h_k, $value = RedisConfig::DEFAULT_DATA_INT)

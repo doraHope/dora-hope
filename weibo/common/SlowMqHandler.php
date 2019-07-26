@@ -5,7 +5,7 @@ namespace app\common;
 
 use Yii;
 /**
- * 消息队列处理
+ * 消息队列处理基础服务类
  * @package app\common
  */
 class SlowMqHandler
@@ -23,6 +23,8 @@ class SlowMqHandler
     public static function pushFens(&$handler, $fid, $wbId)
     {
         $key = WB_FOCUS.$fid;
+        $handler->listPush($key, $wbId);
+        $key = WB_PULIBC.$fid;
         $handler->listPush($key, $wbId);
     }
 

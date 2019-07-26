@@ -3,25 +3,30 @@
 
 namespace app\controllers;
 
+
 use app\models\handler\SessionHandler;
-use yii\web\Controller;
-use Yii;
 use RedisException;
+use Yii;
+use yii\web\Controller;
 
 /**
- * 控制器类的自定义基类
- * Class DController
+ * 用作后台控制器基类
+ * Class HopeController
  * @package app\controllers
  */
-class DController extends Controller
+class HopeController extends Controller
 {
 
     public $redis;
     public $mysql;
     public $session;
+    public $request;
 
     public function beforeAction($action)
     {
+        if(Yii::$app->session->get('uid')) {
+            return false;
+        }
         //连接redis
         try{
             $redis = Yii::$app->get('redis');
@@ -41,9 +46,11 @@ class DController extends Controller
             Yii::$app->end();
         }
         $this->session = Yii::$app->session;
+        $this->request = Yii::$app->getRequest();
         //使用redis存储session
         SessionHandler::init();
         session_start();
         return true;
     }
+
 }

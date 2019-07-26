@@ -13,10 +13,11 @@ class RedisConfig
     const TIME_TYPE_SEC = 0;                        //时间单位为s
     const TIME_TYPE_PSEC = 1;                       //时间单位为毫秒
 
-    const DEFAULT_EXPIRE_TIME = 30;               //默认过期时间
+    const DEFAULT_EXPIRE_TIME = 7200;               //默认过期时间
 
     const DEFAULT_DATA_STRING = '';                 //string类型默认值
     const DEFAULT_DATA_INT = 0;                     //int类型默认值
+    const DEFAULT_DATA_INT_USEFUL = 1;              //有值的int
 
     const DEFAULT_ZINTER_OPERATION = 'sum';            //有序集合做集合运算时分值运算取的类型
     const DATA_CHANGE_TYPE_COPY = 0;                         //复制

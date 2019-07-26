@@ -1,24 +1,22 @@
 <?php
 
 
-namespace app\controllers;
+namespace app\commands;
 
-use app\models\handler\SessionHandler;
-use yii\web\Controller;
-use Yii;
+
 use RedisException;
+use Yii;
+use yii\console\Controller;
 
 /**
- * 控制器类的自定义基类
- * Class DController
- * @package app\controllers
+ * 队列消费基类
+ * Class CController
+ * @package app\commands
  */
-class DController extends Controller
+class CController extends Controller
 {
-
     public $redis;
     public $mysql;
-    public $session;
 
     public function beforeAction($action)
     {
@@ -40,10 +38,7 @@ class DController extends Controller
         }catch (\Exception $e) {
             Yii::$app->end();
         }
-        $this->session = Yii::$app->session;
-        //使用redis存储session
-        SessionHandler::init();
-        session_start();
         return true;
     }
+
 }

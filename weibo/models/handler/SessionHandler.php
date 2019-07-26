@@ -2,6 +2,11 @@
 
 namespace app\models\handler;
 
+/**
+ * session 会话状态处理类
+ * Class SessionHandler
+ * @package app\models\handler
+ */
 class SessionHandler
 {
     private $handler;

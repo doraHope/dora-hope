@@ -96,7 +96,7 @@ class RedisBase
     public static function multi($name, $level = 0)
     {
         $key = time().rand(0, 9999);
-        $stringKey = srpintf('lock:%s:%s', $name, $level);
+        $stringKey = sprintf('lock:%s:%s', $name, $level);
         $ret = self::$handler->setNx($stringKey, $key);
         if(!$ret) {
             if(!self::$handler->ttl($stringKey)) {
@@ -112,10 +112,12 @@ class RedisBase
 
     public static function exec($name, $key, $level = 0) 
     {
-        $ret = self::$handler->get(srpintf('lock:%s:%s', $name, $level));
+        $strKey = sprintf('lock:%s:%s', $name, $level);
+        $ret = self::$handler->get($strKey);
         if(!$ret && strval($key) !== strval($ret)) {
             return LOCK_IS_NOT_ME;
         }
+        self::$handler->del($strKey);
         return self::$handler->exec();
     }
 

@@ -75,6 +75,7 @@ class WBRedisHandler
         $max = $ret[1];         //粉丝中积分最高者
         $key = WB_FENS . $uid;
         $intFensCount = $redis->setSize($key);
+        //当用户的粉丝数量高达上限时，将处理任务添加到快速处理队列中，否则添加到慢速处理队列中
         if ($intFensCount > QUICK_SLOW_LIMIT_LIEN) {
             $keyMq = WB_MQ_PUSH_QUICK . ($uid % WB_MQ_PUSH_QUICK_LENGTH);
         } else {
@@ -98,14 +99,13 @@ class WBRedisHandler
         }
     }
 
-    public static function push2selfWB($uid, $wbId)
+    public static function push2CommonWB($uid, $wbId)
     {
         $redis = Yii::$app->get('redis');
         $key = WB_SELF.$uid;
-        $message = json_encode([
-            'timestamp' => time(),
-            'content' => $wbId
-        ]);
-        self::_pushWeiBoSub($redis, $key, $message);
+        self::_pushWeiBoSub($redis, $key, $wbId);
+        $key = WB_PULIBC.$uid;
+        self::_pushWeiBoSub($redis, $key, $wbId);
     }
+
 }

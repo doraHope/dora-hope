@@ -17,20 +17,30 @@ class RedisString extends RedisBase
 
     public function set($value, $expire = RedisConfig::DEFAULT_EXPIRE_TIME, $type = RedisConfig::TIME_TYPE_SEC)
     {
-        if($type) {
-            return parent::sour()->set($this->key, $value, ['xx', 'px' => $expire]);
+        if($expire) {
+            if($type) {
+                return parent::sour()->set($this->key, $value, ['nx', 'px' => $expire]);
+            } else {
+                return parent::sour()->set($this->key, $value, ['nx', 'ex' => $expire]);
+            }
         } else {
-            return parent::sour()->set($this->key, $value, ['xx', 'ex' => $expire]);
+            return parent::sour()->set($this->key, $value);
         }
+        
     }
 
     public function setNx($value, $expire = RedisConfig::DEFAULT_EXPIRE_TIME, $type = RedisConfig::TIME_TYPE_SEC)
     {
-        if($type) {
-            return parent::sour()->set($this->key, $value, ['nx', 'px' => $expire]);
+        if($expire) {
+            if($type) {
+                return parent::sour()->set($this->key, $value, ['xx', 'px' => $expire]);
+            } else {
+                return parent::sour()->set($this->key, $value, ['xx', 'ex' => $expire]);
+            }
         } else {
-            return parent::sour()->set($this->key, $value, ['nx', 'ex' => $expire]);
+            return parent::sour()->set($this->key, $value);
         }
+        
     }
 
     public function incr($value = RedisConfig::DEFAULT_DATA_INT)

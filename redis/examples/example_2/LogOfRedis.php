@@ -5,6 +5,7 @@ namespace app\example_2;
 use app\redis\RedisList;
 use app\redis\RedisString;
 use app\redis\RedisBase;
+use app\base\Log;
 
 class LogOfRedis
 {
@@ -68,14 +69,17 @@ class LogOfRedis
             'date' => date('Y-m-d H:i:s', time()),
             'content' => $message
         ];
-        $oldHour = intval($this->logTime->get());
+        $oldHour = $this->log->get();
         $nowHour = intval(date('H', time()));
+        if(false === $oldHour) {
+            $this->logTime->set($nowHour);
+            $oldHour = $nowHour;
+        } else {
+            $oldHour = intval($oldHour);
+        }
         if($oldHour !== $nowHour) {
             $this->_save($nowHour);
-        }
-        $this->_write($event);
+        } 
+        $this->_write(json_encode($event, JSON_UNESCAPED_UNICODE));
     }
-
-
-
 }

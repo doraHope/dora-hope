@@ -1,0 +1,1269 @@
+2019-06-21 02:52:10 [][-][-][error][yii\base\InvalidConfigException] yii\base\InvalidConfigException: Unable to determine the request URI. in /var/www/dora/weibo/vendor/yiisoft/yii2/web/Request.php:1034
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/web/Request.php(994): yii\web\Request->resolveRequestUri()
+#1 /var/www/dora/weibo/vendor/yiisoft/yii2/web/Request.php(909): yii\web\Request->getUrl()
+#2 /var/www/dora/weibo/vendor/yiisoft/yii2/web/Request.php(883): yii\web\Request->resolvePathInfo()
+#3 /var/www/dora/weibo/vendor/yiisoft/yii2/web/UrlRule.php(390): yii\web\Request->getPathInfo()
+#4 /var/www/dora/weibo/vendor/yiisoft/yii2/web/UrlManager.php(310): yii\web\UrlRule->parseRequest(Object(yii\web\UrlManager), Object(yii\web\Request))
+#5 /var/www/dora/weibo/vendor/yiisoft/yii2/web/Request.php(272): yii\web\UrlManager->parseRequest(Object(yii\web\Request))
+#6 /var/www/dora/weibo/vendor/yiisoft/yii2/web/Application.php(82): yii\web\Request->resolve()
+#7 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#9 {main}
+2019-06-21 02:52:10 [][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'XDG_SESSION_ID' => '8394'
+    'HOSTNAME' => 'iz2ze87o2y8w8od5dkpraqz'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '115.55.154.109 59783 22'
+    'OLDPWD' => '/var/www/dora/weibo'
+    'SSH_TTY' => '/dev/pts/4'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/php7/bin:/usr/local/php7/sbin:/usr/local/nginx/sbin:/usr/local/git/bin:/root/redis/src:/usr/local/go/bin:/root/bin'
+    'PWD' => '/var/www/dora/weibo/web'
+    'LANG' => 'en_US.UTF-8'
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'SSH_CONNECTION' => '115.55.154.109 59783 172.17.224.229 22'
+    'LESSOPEN' => '||/usr/bin/lesspipe.sh %s'
+    'XDG_RUNTIME_DIR' => '/run/user/0'
+    '_' => '/usr/local/php7/bin/php'
+    'PHP_SELF' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_NAME' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_FILENAME' => '/var/www/dora/weibo/web/batch.php'
+    'PATH_TRANSLATED' => '/var/www/dora/weibo/web/batch.php'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1561085530.5126
+    'REQUEST_TIME' => 1561085530
+    'argv' => [
+        0 => '/var/www/dora/weibo/web/batch.php'
+        1 => 'mq'
+        2 => 'wbPush'
+    ]
+    'argc' => 3
+]
+2019-06-21 02:55:22 [][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "". in /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#1 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/dora/weibo/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#2 {main}
+2019-06-21 02:55:22 [][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'XDG_SESSION_ID' => '8394'
+    'HOSTNAME' => 'iz2ze87o2y8w8od5dkpraqz'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '115.55.154.109 59783 22'
+    'OLDPWD' => '/var/www/dora/weibo'
+    'SSH_TTY' => '/dev/pts/4'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/php7/bin:/usr/local/php7/sbin:/usr/local/nginx/sbin:/usr/local/git/bin:/root/redis/src:/usr/local/go/bin:/root/bin'
+    'PWD' => '/var/www/dora/weibo/web'
+    'LANG' => 'en_US.UTF-8'
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'SSH_CONNECTION' => '115.55.154.109 59783 172.17.224.229 22'
+    'LESSOPEN' => '||/usr/bin/lesspipe.sh %s'
+    'XDG_RUNTIME_DIR' => '/run/user/0'
+    '_' => '/usr/local/php7/bin/php'
+    'PHP_SELF' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_NAME' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_FILENAME' => '/var/www/dora/weibo/web/batch.php'
+    'PATH_TRANSLATED' => '/var/www/dora/weibo/web/batch.php'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1561085722.4802
+    'REQUEST_TIME' => 1561085722
+    'argv' => [
+        0 => '/var/www/dora/weibo/web/batch.php'
+        1 => 'mq'
+        2 => 'wbPush'
+    ]
+    'argc' => 3
+]
+2019-06-21 02:55:32 [][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "". in /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#1 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/dora/weibo/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#2 {main}
+2019-06-21 02:55:32 [][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'XDG_SESSION_ID' => '8394'
+    'HOSTNAME' => 'iz2ze87o2y8w8od5dkpraqz'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '115.55.154.109 59783 22'
+    'OLDPWD' => '/var/www/dora/weibo'
+    'SSH_TTY' => '/dev/pts/4'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/php7/bin:/usr/local/php7/sbin:/usr/local/nginx/sbin:/usr/local/git/bin:/root/redis/src:/usr/local/go/bin:/root/bin'
+    'PWD' => '/var/www/dora/weibo/web'
+    'LANG' => 'en_US.UTF-8'
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'SSH_CONNECTION' => '115.55.154.109 59783 172.17.224.229 22'
+    'LESSOPEN' => '||/usr/bin/lesspipe.sh %s'
+    'XDG_RUNTIME_DIR' => '/run/user/0'
+    '_' => '/usr/local/php7/bin/php'
+    'PHP_SELF' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_NAME' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_FILENAME' => '/var/www/dora/weibo/web/batch.php'
+    'PATH_TRANSLATED' => '/var/www/dora/weibo/web/batch.php'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1561085732.0635
+    'REQUEST_TIME' => 1561085732
+    'argv' => [
+        0 => '/var/www/dora/weibo/web/batch.php'
+        1 => 'mq'
+        2 => 'wbPush'
+    ]
+    'argc' => 3
+]
+2019-06-21 02:56:31 [][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "". in /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#1 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/dora/weibo/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#2 {main}
+2019-06-21 02:56:31 [][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'XDG_SESSION_ID' => '8394'
+    'HOSTNAME' => 'iz2ze87o2y8w8od5dkpraqz'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '115.55.154.109 59783 22'
+    'OLDPWD' => '/var/www/dora/weibo'
+    'SSH_TTY' => '/dev/pts/4'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/php7/bin:/usr/local/php7/sbin:/usr/local/nginx/sbin:/usr/local/git/bin:/root/redis/src:/usr/local/go/bin:/root/bin'
+    'PWD' => '/var/www/dora/weibo/web'
+    'LANG' => 'en_US.UTF-8'
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'SSH_CONNECTION' => '115.55.154.109 59783 172.17.224.229 22'
+    'LESSOPEN' => '||/usr/bin/lesspipe.sh %s'
+    'XDG_RUNTIME_DIR' => '/run/user/0'
+    '_' => '/usr/local/php7/bin/php'
+    'PHP_SELF' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_NAME' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_FILENAME' => '/var/www/dora/weibo/web/batch.php'
+    'PATH_TRANSLATED' => '/var/www/dora/weibo/web/batch.php'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1561085791.6297
+    'REQUEST_TIME' => 1561085791
+    'argv' => [
+        0 => '/var/www/dora/weibo/web/batch.php'
+        1 => 'mq'
+        2 => 'wbPush'
+    ]
+    'argc' => 3
+]
+2019-06-21 02:56:52 [][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "". in /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#1 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/dora/weibo/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#2 {main}
+2019-06-21 02:56:52 [][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'XDG_SESSION_ID' => '8394'
+    'HOSTNAME' => 'iz2ze87o2y8w8od5dkpraqz'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '115.55.154.109 59783 22'
+    'OLDPWD' => '/var/www/dora/weibo'
+    'SSH_TTY' => '/dev/pts/4'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/php7/bin:/usr/local/php7/sbin:/usr/local/nginx/sbin:/usr/local/git/bin:/root/redis/src:/usr/local/go/bin:/root/bin'
+    'PWD' => '/var/www/dora/weibo/web'
+    'LANG' => 'en_US.UTF-8'
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'SSH_CONNECTION' => '115.55.154.109 59783 172.17.224.229 22'
+    'LESSOPEN' => '||/usr/bin/lesspipe.sh %s'
+    'XDG_RUNTIME_DIR' => '/run/user/0'
+    '_' => '/usr/local/php7/bin/php'
+    'PHP_SELF' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_NAME' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_FILENAME' => '/var/www/dora/weibo/web/batch.php'
+    'PATH_TRANSLATED' => '/var/www/dora/weibo/web/batch.php'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1561085812.8793
+    'REQUEST_TIME' => 1561085812
+    'argv' => [
+        0 => '/var/www/dora/weibo/web/batch.php'
+        1 => 'mq'
+        2 => 'wbPush'
+    ]
+    'argc' => 3
+]
+2019-06-21 02:57:17 [][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "". in /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#1 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/dora/weibo/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#2 {main}
+2019-06-21 02:57:17 [][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'XDG_SESSION_ID' => '8394'
+    'HOSTNAME' => 'iz2ze87o2y8w8od5dkpraqz'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '115.55.154.109 59783 22'
+    'OLDPWD' => '/var/www/dora/weibo'
+    'SSH_TTY' => '/dev/pts/4'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/php7/bin:/usr/local/php7/sbin:/usr/local/nginx/sbin:/usr/local/git/bin:/root/redis/src:/usr/local/go/bin:/root/bin'
+    'PWD' => '/var/www/dora/weibo/web'
+    'LANG' => 'en_US.UTF-8'
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'SSH_CONNECTION' => '115.55.154.109 59783 172.17.224.229 22'
+    'LESSOPEN' => '||/usr/bin/lesspipe.sh %s'
+    'XDG_RUNTIME_DIR' => '/run/user/0'
+    '_' => '/usr/local/php7/bin/php'
+    'PHP_SELF' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_NAME' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_FILENAME' => '/var/www/dora/weibo/web/batch.php'
+    'PATH_TRANSLATED' => '/var/www/dora/weibo/web/batch.php'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1561085837.7138
+    'REQUEST_TIME' => 1561085837
+    'argv' => [
+        0 => '/var/www/dora/weibo/web/batch.php'
+        1 => 'mq'
+        2 => 'wbPush'
+    ]
+    'argc' => 3
+]
+2019-06-21 02:58:09 [][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "". in /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#1 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/dora/weibo/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#2 {main}
+2019-06-21 02:58:09 [][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'XDG_SESSION_ID' => '8394'
+    'HOSTNAME' => 'iz2ze87o2y8w8od5dkpraqz'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '115.55.154.109 59783 22'
+    'OLDPWD' => '/var/www/dora/weibo'
+    'SSH_TTY' => '/dev/pts/4'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/php7/bin:/usr/local/php7/sbin:/usr/local/nginx/sbin:/usr/local/git/bin:/root/redis/src:/usr/local/go/bin:/root/bin'
+    'PWD' => '/var/www/dora/weibo/web'
+    'LANG' => 'en_US.UTF-8'
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'SSH_CONNECTION' => '115.55.154.109 59783 172.17.224.229 22'
+    'LESSOPEN' => '||/usr/bin/lesspipe.sh %s'
+    'XDG_RUNTIME_DIR' => '/run/user/0'
+    '_' => '/usr/local/php7/bin/php'
+    'PHP_SELF' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_NAME' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_FILENAME' => '/var/www/dora/weibo/web/batch.php'
+    'PATH_TRANSLATED' => '/var/www/dora/weibo/web/batch.php'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1561085889.0748
+    'REQUEST_TIME' => 1561085889
+    'argv' => [
+        0 => '/var/www/dora/weibo/web/batch.php'
+        1 => 'mq'
+        2 => 'wbPush'
+    ]
+    'argc' => 3
+]
+2019-06-21 03:00:37 [][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "". in /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#1 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/dora/weibo/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#2 {main}
+2019-06-21 03:00:37 [][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'XDG_SESSION_ID' => '8394'
+    'HOSTNAME' => 'iz2ze87o2y8w8od5dkpraqz'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '115.55.154.109 59783 22'
+    'OLDPWD' => '/var/www/dora/weibo'
+    'SSH_TTY' => '/dev/pts/4'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/php7/bin:/usr/local/php7/sbin:/usr/local/nginx/sbin:/usr/local/git/bin:/root/redis/src:/usr/local/go/bin:/root/bin'
+    'PWD' => '/var/www/dora/weibo/web'
+    'LANG' => 'en_US.UTF-8'
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'SSH_CONNECTION' => '115.55.154.109 59783 172.17.224.229 22'
+    'LESSOPEN' => '||/usr/bin/lesspipe.sh %s'
+    'XDG_RUNTIME_DIR' => '/run/user/0'
+    '_' => '/usr/local/php7/bin/php'
+    'PHP_SELF' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_NAME' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_FILENAME' => '/var/www/dora/weibo/web/batch.php'
+    'PATH_TRANSLATED' => '/var/www/dora/weibo/web/batch.php'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1561086037.2579
+    'REQUEST_TIME' => 1561086037
+    'argv' => [
+        0 => '/var/www/dora/weibo/web/batch.php'
+        1 => 'mq'
+        2 => 'wbPush'
+    ]
+    'argc' => 3
+]
+2019-06-21 03:01:07 [][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "". in /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#1 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/dora/weibo/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#2 {main}
+2019-06-21 03:01:07 [][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'XDG_SESSION_ID' => '8394'
+    'HOSTNAME' => 'iz2ze87o2y8w8od5dkpraqz'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '115.55.154.109 59783 22'
+    'OLDPWD' => '/var/www/dora/weibo'
+    'SSH_TTY' => '/dev/pts/4'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/php7/bin:/usr/local/php7/sbin:/usr/local/nginx/sbin:/usr/local/git/bin:/root/redis/src:/usr/local/go/bin:/root/bin'
+    'PWD' => '/var/www/dora/weibo/web'
+    'LANG' => 'en_US.UTF-8'
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'SSH_CONNECTION' => '115.55.154.109 59783 172.17.224.229 22'
+    'LESSOPEN' => '||/usr/bin/lesspipe.sh %s'
+    'XDG_RUNTIME_DIR' => '/run/user/0'
+    '_' => '/usr/local/php7/bin/php'
+    'PHP_SELF' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_NAME' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_FILENAME' => '/var/www/dora/weibo/web/batch.php'
+    'PATH_TRANSLATED' => '/var/www/dora/weibo/web/batch.php'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1561086067.8787
+    'REQUEST_TIME' => 1561086067
+    'argv' => [
+        0 => '/var/www/dora/weibo/web/batch.php'
+        1 => 'mq'
+        2 => 'wbPush'
+    ]
+    'argc' => 3
+]
+2019-06-21 03:02:42 [][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "". in /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#1 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/dora/weibo/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#2 {main}
+2019-06-21 03:02:42 [][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'XDG_SESSION_ID' => '8394'
+    'HOSTNAME' => 'iz2ze87o2y8w8od5dkpraqz'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '115.55.154.109 59783 22'
+    'OLDPWD' => '/var/www/dora/weibo'
+    'SSH_TTY' => '/dev/pts/4'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/php7/bin:/usr/local/php7/sbin:/usr/local/nginx/sbin:/usr/local/git/bin:/root/redis/src:/usr/local/go/bin:/root/bin'
+    'PWD' => '/var/www/dora/weibo/web'
+    'LANG' => 'en_US.UTF-8'
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'SSH_CONNECTION' => '115.55.154.109 59783 172.17.224.229 22'
+    'LESSOPEN' => '||/usr/bin/lesspipe.sh %s'
+    'XDG_RUNTIME_DIR' => '/run/user/0'
+    '_' => '/usr/local/php7/bin/php'
+    'PHP_SELF' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_NAME' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_FILENAME' => '/var/www/dora/weibo/web/batch.php'
+    'PATH_TRANSLATED' => '/var/www/dora/weibo/web/batch.php'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1561086162.1598
+    'REQUEST_TIME' => 1561086162
+    'argv' => [
+        0 => '/var/www/dora/weibo/web/batch.php'
+        1 => 'mq'
+        2 => 'wbPush'
+    ]
+    'argc' => 3
+]
+2019-06-21 03:02:58 [][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "". in /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#1 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /var/www/dora/weibo/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#2 {main}
+2019-06-21 03:02:58 [][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'XDG_SESSION_ID' => '8394'
+    'HOSTNAME' => 'iz2ze87o2y8w8od5dkpraqz'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '115.55.154.109 59783 22'
+    'OLDPWD' => '/var/www/dora/weibo'
+    'SSH_TTY' => '/dev/pts/4'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/php7/bin:/usr/local/php7/sbin:/usr/local/nginx/sbin:/usr/local/git/bin:/root/redis/src:/usr/local/go/bin:/root/bin'
+    'PWD' => '/var/www/dora/weibo/web'
+    'LANG' => 'en_US.UTF-8'
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'SSH_CONNECTION' => '115.55.154.109 59783 172.17.224.229 22'
+    'LESSOPEN' => '||/usr/bin/lesspipe.sh %s'
+    'XDG_RUNTIME_DIR' => '/run/user/0'
+    '_' => '/usr/local/php7/bin/php'
+    'PHP_SELF' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_NAME' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_FILENAME' => '/var/www/dora/weibo/web/batch.php'
+    'PATH_TRANSLATED' => '/var/www/dora/weibo/web/batch.php'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1561086178.6733
+    'REQUEST_TIME' => 1561086178
+    'argv' => [
+        0 => '/var/www/dora/weibo/web/batch.php'
+        1 => 'mq'
+        2 => 'wbPush'
+    ]
+    'argc' => 3
+]
+2019-06-21 03:04:16 [-][-][-][error][yii\console\UnknownCommandException] yii\base\InvalidRouteException: Unable to resolve the request: mq/ in /var/www/dora/weibo/vendor/yiisoft/yii2/base/Controller.php:128
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Controller.php(148): yii\base\Controller->runAction('', Array)
+#1 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#2 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('mq', Array)
+#3 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('mq', Array)
+#4 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#5 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#6 {main}
+
+Next yii\console\UnknownCommandException: Unknown command "mq". in /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php:183
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('mq', Array)
+#1 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#2 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#3 {main}
+2019-06-21 03:04:16 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'XDG_SESSION_ID' => '8394'
+    'HOSTNAME' => 'iz2ze87o2y8w8od5dkpraqz'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '115.55.154.109 59783 22'
+    'OLDPWD' => '/var/www/dora/weibo'
+    'SSH_TTY' => '/dev/pts/4'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/php7/bin:/usr/local/php7/sbin:/usr/local/nginx/sbin:/usr/local/git/bin:/root/redis/src:/usr/local/go/bin:/root/bin'
+    'PWD' => '/var/www/dora/weibo/web'
+    'LANG' => 'en_US.UTF-8'
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'SSH_CONNECTION' => '115.55.154.109 59783 172.17.224.229 22'
+    'LESSOPEN' => '||/usr/bin/lesspipe.sh %s'
+    'XDG_RUNTIME_DIR' => '/run/user/0'
+    '_' => '/usr/local/php7/bin/php'
+    'PHP_SELF' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_NAME' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_FILENAME' => '/var/www/dora/weibo/web/batch.php'
+    'PATH_TRANSLATED' => '/var/www/dora/weibo/web/batch.php'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1561086256.9409
+    'REQUEST_TIME' => 1561086256
+    'argv' => [
+        0 => '/var/www/dora/weibo/web/batch.php'
+        1 => 'mq'
+        2 => 'wbPush'
+    ]
+    'argc' => 3
+]
+2019-06-21 03:08:20 [-][-][-][error][yii\console\UnknownCommandException] yii\base\InvalidRouteException: Unable to resolve the request: mq/ in /var/www/dora/weibo/vendor/yiisoft/yii2/base/Controller.php:128
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Controller.php(148): yii\base\Controller->runAction('', Array)
+#1 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#2 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('mq', Array)
+#3 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('mq', Array)
+#4 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#5 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#6 {main}
+
+Next yii\console\UnknownCommandException: Unknown command "mq". in /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php:183
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('mq', Array)
+#1 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#2 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#3 {main}
+2019-06-21 03:08:20 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'XDG_SESSION_ID' => '8394'
+    'HOSTNAME' => 'iz2ze87o2y8w8od5dkpraqz'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '115.55.154.109 59783 22'
+    'OLDPWD' => '/var/www/dora/weibo'
+    'SSH_TTY' => '/dev/pts/4'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/php7/bin:/usr/local/php7/sbin:/usr/local/nginx/sbin:/usr/local/git/bin:/root/redis/src:/usr/local/go/bin:/root/bin'
+    'PWD' => '/var/www/dora/weibo/web'
+    'LANG' => 'en_US.UTF-8'
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'SSH_CONNECTION' => '115.55.154.109 59783 172.17.224.229 22'
+    'LESSOPEN' => '||/usr/bin/lesspipe.sh %s'
+    'XDG_RUNTIME_DIR' => '/run/user/0'
+    '_' => '/usr/local/php7/bin/php'
+    'PHP_SELF' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_NAME' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_FILENAME' => '/var/www/dora/weibo/web/batch.php'
+    'PATH_TRANSLATED' => '/var/www/dora/weibo/web/batch.php'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1561086500.3192
+    'REQUEST_TIME' => 1561086500
+    'argv' => [
+        0 => '/var/www/dora/weibo/web/batch.php'
+        1 => 'mq'
+        2 => 'wbPush'
+    ]
+    'argc' => 3
+]
+2019-06-21 03:13:10 [-][-][-][error][yii\console\UnknownCommandException] yii\base\InvalidRouteException: Unable to resolve the request: mq/ in /var/www/dora/weibo/vendor/yiisoft/yii2/base/Controller.php:128
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Controller.php(148): yii\base\Controller->runAction('', Array)
+#1 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#2 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('mq', Array)
+#3 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('mq', Array)
+#4 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#5 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#6 {main}
+
+Next yii\console\UnknownCommandException: Unknown command "mq". in /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php:183
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('mq', Array)
+#1 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#2 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#3 {main}
+2019-06-21 03:13:10 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'XDG_SESSION_ID' => '8394'
+    'HOSTNAME' => 'iz2ze87o2y8w8od5dkpraqz'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '115.55.154.109 59783 22'
+    'OLDPWD' => '/var/www'
+    'SSH_TTY' => '/dev/pts/4'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/php7/bin:/usr/local/php7/sbin:/usr/local/nginx/sbin:/usr/local/git/bin:/root/redis/src:/usr/local/go/bin:/root/bin'
+    'PWD' => '/var/www/dora'
+    'LANG' => 'en_US.UTF-8'
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'SSH_CONNECTION' => '115.55.154.109 59783 172.17.224.229 22'
+    'LESSOPEN' => '||/usr/bin/lesspipe.sh %s'
+    'XDG_RUNTIME_DIR' => '/run/user/0'
+    '_' => '/usr/local/php7/bin/php'
+    'PHP_SELF' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_NAME' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_FILENAME' => '/var/www/dora/weibo/web/batch.php'
+    'PATH_TRANSLATED' => '/var/www/dora/weibo/web/batch.php'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1561086790.5496
+    'REQUEST_TIME' => 1561086790
+    'argv' => [
+        0 => '/var/www/dora/weibo/web/batch.php'
+        1 => 'mq'
+        2 => 'wbPush'
+    ]
+    'argc' => 3
+]
+2019-06-21 03:15:02 [-][-][-][error][yii\base\InvalidConfigException] yii\base\InvalidConfigException: Controller class must extend from \yii\base\Controller. in /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php:645
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php(596): yii\base\Module->createControllerByID('hello')
+#1 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php(522): yii\base\Module->createController('')
+#2 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('hello', Array)
+#3 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('hello', Array)
+#4 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#5 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#6 {main}
+2019-06-21 03:15:02 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'XDG_SESSION_ID' => '8394'
+    'HOSTNAME' => 'iz2ze87o2y8w8od5dkpraqz'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '115.55.154.109 59783 22'
+    'OLDPWD' => '/var/www'
+    'SSH_TTY' => '/dev/pts/4'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/php7/bin:/usr/local/php7/sbin:/usr/local/nginx/sbin:/usr/local/git/bin:/root/redis/src:/usr/local/go/bin:/root/bin'
+    'PWD' => '/var/www/dora'
+    'LANG' => 'en_US.UTF-8'
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'SSH_CONNECTION' => '115.55.154.109 59783 172.17.224.229 22'
+    'LESSOPEN' => '||/usr/bin/lesspipe.sh %s'
+    'XDG_RUNTIME_DIR' => '/run/user/0'
+    '_' => '/usr/local/php7/bin/php'
+    'PHP_SELF' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_NAME' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_FILENAME' => '/var/www/dora/weibo/web/batch.php'
+    'PATH_TRANSLATED' => '/var/www/dora/weibo/web/batch.php'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1561086902.8083
+    'REQUEST_TIME' => 1561086902
+    'argv' => [
+        0 => '/var/www/dora/weibo/web/batch.php'
+        1 => 'hello'
+        2 => 'index'
+    ]
+    'argc' => 3
+]
+2019-06-21 03:15:53 [-][-][-][error][yii\base\InvalidConfigException] yii\base\InvalidConfigException: Controller class must extend from \yii\base\Controller. in /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php:645
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php(596): yii\base\Module->createControllerByID('hello')
+#1 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php(522): yii\base\Module->createController('')
+#2 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('hello', Array)
+#3 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('hello', Array)
+#4 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#5 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#6 {main}
+2019-06-21 03:15:53 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'XDG_SESSION_ID' => '8394'
+    'HOSTNAME' => 'iz2ze87o2y8w8od5dkpraqz'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '115.55.154.109 59783 22'
+    'OLDPWD' => '/var/www'
+    'SSH_TTY' => '/dev/pts/4'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/php7/bin:/usr/local/php7/sbin:/usr/local/nginx/sbin:/usr/local/git/bin:/root/redis/src:/usr/local/go/bin:/root/bin'
+    'PWD' => '/var/www/dora'
+    'LANG' => 'en_US.UTF-8'
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'SSH_CONNECTION' => '115.55.154.109 59783 172.17.224.229 22'
+    'LESSOPEN' => '||/usr/bin/lesspipe.sh %s'
+    'XDG_RUNTIME_DIR' => '/run/user/0'
+    '_' => '/usr/local/php7/bin/php'
+    'PHP_SELF' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_NAME' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_FILENAME' => '/var/www/dora/weibo/web/batch.php'
+    'PATH_TRANSLATED' => '/var/www/dora/weibo/web/batch.php'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1561086953.0051
+    'REQUEST_TIME' => 1561086953
+    'argv' => [
+        0 => '/var/www/dora/weibo/web/batch.php'
+        1 => 'hello'
+        2 => 'index'
+    ]
+    'argc' => 3
+]
+2019-06-21 03:16:06 [-][-][-][error][yii\base\InvalidConfigException] yii\base\InvalidConfigException: Controller class must extend from \yii\base\Controller. in /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php:645
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php(596): yii\base\Module->createControllerByID('hello')
+#1 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php(522): yii\base\Module->createController('')
+#2 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('hello', Array)
+#3 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('hello', Array)
+#4 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#5 /var/www/dora/weibo/web/batch.php(19): yii\base\Application->run()
+#6 {main}
+2019-06-21 03:16:06 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'XDG_SESSION_ID' => '8394'
+    'HOSTNAME' => 'iz2ze87o2y8w8od5dkpraqz'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '115.55.154.109 59783 22'
+    'OLDPWD' => '/var/www'
+    'SSH_TTY' => '/dev/pts/4'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/php7/bin:/usr/local/php7/sbin:/usr/local/nginx/sbin:/usr/local/git/bin:/root/redis/src:/usr/local/go/bin:/root/bin'
+    'PWD' => '/var/www/dora'
+    'LANG' => 'en_US.UTF-8'
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'SSH_CONNECTION' => '115.55.154.109 59783 172.17.224.229 22'
+    'LESSOPEN' => '||/usr/bin/lesspipe.sh %s'
+    'XDG_RUNTIME_DIR' => '/run/user/0'
+    '_' => '/usr/local/php7/bin/php'
+    'PHP_SELF' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_NAME' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_FILENAME' => '/var/www/dora/weibo/web/batch.php'
+    'PATH_TRANSLATED' => '/var/www/dora/weibo/web/batch.php'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1561086966.3577
+    'REQUEST_TIME' => 1561086966
+    'argv' => [
+        0 => '/var/www/dora/weibo/web/batch.php'
+        1 => 'hello'
+        2 => 'index'
+    ]
+    'argc' => 3
+]
+2019-06-21 03:18:11 [-][-][-][error][yii\base\UnknownPropertyException] yii\base\UnknownPropertyException: Getting unknown property: yii\console\Application::session in /var/www/dora/weibo/vendor/yiisoft/yii2/base/Component.php:154
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/di/ServiceLocator.php(77): yii\base\Component->__get('session')
+#1 /var/www/dora/weibo/commands/CController.php(38): yii\di\ServiceLocator->__get('session')
+#2 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Controller.php(155): app\commands\CController->beforeAction(Object(yii\base\InlineAction))
+#3 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Controller.php(148): yii\base\Controller->runAction('', Array)
+#4 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#5 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('hello', Array)
+#6 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('hello', Array)
+#7 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#8 /var/www/dora/weibo/web/batch.php(16): yii\base\Application->run()
+#9 {main}
+2019-06-21 03:18:11 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'XDG_SESSION_ID' => '8394'
+    'HOSTNAME' => 'iz2ze87o2y8w8od5dkpraqz'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '115.55.154.109 59783 22'
+    'OLDPWD' => '/var/www'
+    'SSH_TTY' => '/dev/pts/4'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/php7/bin:/usr/local/php7/sbin:/usr/local/nginx/sbin:/usr/local/git/bin:/root/redis/src:/usr/local/go/bin:/root/bin'
+    'PWD' => '/var/www/dora'
+    'LANG' => 'en_US.UTF-8'
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'SSH_CONNECTION' => '115.55.154.109 59783 172.17.224.229 22'
+    'LESSOPEN' => '||/usr/bin/lesspipe.sh %s'
+    'XDG_RUNTIME_DIR' => '/run/user/0'
+    '_' => '/usr/local/php7/bin/php'
+    'PHP_SELF' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_NAME' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_FILENAME' => '/var/www/dora/weibo/web/batch.php'
+    'PATH_TRANSLATED' => '/var/www/dora/weibo/web/batch.php'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1561087091.3705
+    'REQUEST_TIME' => 1561087091
+    'argv' => [
+        0 => '/var/www/dora/weibo/web/batch.php'
+        1 => 'hello'
+        2 => 'index'
+    ]
+    'argc' => 3
+]
+2019-06-21 03:19:08 [-][-][-][error][yii\base\UnknownPropertyException] yii\base\UnknownPropertyException: Getting unknown property: yii\console\Application::session in /var/www/dora/weibo/vendor/yiisoft/yii2/base/Component.php:154
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/di/ServiceLocator.php(77): yii\base\Component->__get('session')
+#1 /var/www/dora/weibo/commands/CController.php(38): yii\di\ServiceLocator->__get('session')
+#2 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Controller.php(155): app\commands\CController->beforeAction(Object(yii\base\InlineAction))
+#3 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Controller.php(148): yii\base\Controller->runAction('', Array)
+#4 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#5 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('hello', Array)
+#6 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('hello', Array)
+#7 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#8 /var/www/dora/weibo/web/batch.php(16): yii\base\Application->run()
+#9 {main}
+2019-06-21 03:19:08 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'XDG_SESSION_ID' => '8394'
+    'HOSTNAME' => 'iz2ze87o2y8w8od5dkpraqz'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '115.55.154.109 59783 22'
+    'OLDPWD' => '/var/www'
+    'SSH_TTY' => '/dev/pts/4'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/php7/bin:/usr/local/php7/sbin:/usr/local/nginx/sbin:/usr/local/git/bin:/root/redis/src:/usr/local/go/bin:/root/bin'
+    'PWD' => '/var/www/dora'
+    'LANG' => 'en_US.UTF-8'
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'SSH_CONNECTION' => '115.55.154.109 59783 172.17.224.229 22'
+    'LESSOPEN' => '||/usr/bin/lesspipe.sh %s'
+    'XDG_RUNTIME_DIR' => '/run/user/0'
+    '_' => '/usr/local/php7/bin/php'
+    'PHP_SELF' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_NAME' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_FILENAME' => '/var/www/dora/weibo/web/batch.php'
+    'PATH_TRANSLATED' => '/var/www/dora/weibo/web/batch.php'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1561087148.76
+    'REQUEST_TIME' => 1561087148
+    'argv' => [
+        0 => '/var/www/dora/weibo/web/batch.php'
+        1 => 'hello'
+        2 => 'index'
+    ]
+    'argc' => 3
+]
+2019-06-21 03:20:16 [-][-][-][error][yii\console\UnknownCommandException] yii\base\InvalidRouteException: Unable to resolve the request: mq/ in /var/www/dora/weibo/vendor/yiisoft/yii2/base/Controller.php:128
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Controller.php(148): yii\base\Controller->runAction('', Array)
+#1 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#2 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('mq', Array)
+#3 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('mq', Array)
+#4 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#5 /var/www/dora/weibo/web/batch.php(16): yii\base\Application->run()
+#6 {main}
+
+Next yii\console\UnknownCommandException: Unknown command "mq". in /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php:183
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('mq', Array)
+#1 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#2 /var/www/dora/weibo/web/batch.php(16): yii\base\Application->run()
+#3 {main}
+2019-06-21 03:20:16 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'XDG_SESSION_ID' => '8394'
+    'HOSTNAME' => 'iz2ze87o2y8w8od5dkpraqz'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '115.55.154.109 59783 22'
+    'OLDPWD' => '/var/www'
+    'SSH_TTY' => '/dev/pts/4'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/php7/bin:/usr/local/php7/sbin:/usr/local/nginx/sbin:/usr/local/git/bin:/root/redis/src:/usr/local/go/bin:/root/bin'
+    'PWD' => '/var/www/dora'
+    'LANG' => 'en_US.UTF-8'
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'SSH_CONNECTION' => '115.55.154.109 59783 172.17.224.229 22'
+    'LESSOPEN' => '||/usr/bin/lesspipe.sh %s'
+    'XDG_RUNTIME_DIR' => '/run/user/0'
+    '_' => '/usr/local/php7/bin/php'
+    'PHP_SELF' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_NAME' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_FILENAME' => '/var/www/dora/weibo/web/batch.php'
+    'PATH_TRANSLATED' => '/var/www/dora/weibo/web/batch.php'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1561087216.8822
+    'REQUEST_TIME' => 1561087216
+    'argv' => [
+        0 => '/var/www/dora/weibo/web/batch.php'
+        1 => 'mq'
+        2 => 'wbPush'
+    ]
+    'argc' => 3
+]
+2019-06-21 03:20:25 [-][-][-][error][yii\console\UnknownCommandException] yii\base\InvalidRouteException: Unable to resolve the request: mq/ in /var/www/dora/weibo/vendor/yiisoft/yii2/base/Controller.php:128
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Controller.php(148): yii\base\Controller->runAction('', Array)
+#1 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#2 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('mq', Array)
+#3 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('mq', Array)
+#4 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#5 /var/www/dora/weibo/web/batch.php(16): yii\base\Application->run()
+#6 {main}
+
+Next yii\console\UnknownCommandException: Unknown command "mq". in /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php:183
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('mq', Array)
+#1 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#2 /var/www/dora/weibo/web/batch.php(16): yii\base\Application->run()
+#3 {main}
+2019-06-21 03:20:25 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'XDG_SESSION_ID' => '8394'
+    'HOSTNAME' => 'iz2ze87o2y8w8od5dkpraqz'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '115.55.154.109 59783 22'
+    'OLDPWD' => '/var/www'
+    'SSH_TTY' => '/dev/pts/4'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/php7/bin:/usr/local/php7/sbin:/usr/local/nginx/sbin:/usr/local/git/bin:/root/redis/src:/usr/local/go/bin:/root/bin'
+    'PWD' => '/var/www/dora'
+    'LANG' => 'en_US.UTF-8'
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'SSH_CONNECTION' => '115.55.154.109 59783 172.17.224.229 22'
+    'LESSOPEN' => '||/usr/bin/lesspipe.sh %s'
+    'XDG_RUNTIME_DIR' => '/run/user/0'
+    '_' => '/usr/local/php7/bin/php'
+    'PHP_SELF' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_NAME' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_FILENAME' => '/var/www/dora/weibo/web/batch.php'
+    'PATH_TRANSLATED' => '/var/www/dora/weibo/web/batch.php'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1561087225.7462
+    'REQUEST_TIME' => 1561087225
+    'argv' => [
+        0 => '/var/www/dora/weibo/web/batch.php'
+        1 => 'mq'
+        2 => 'wb-ush'
+    ]
+    'argc' => 3
+]
+2019-06-21 03:20:29 [-][-][-][error][yii\console\UnknownCommandException] yii\base\InvalidRouteException: Unable to resolve the request: mq/ in /var/www/dora/weibo/vendor/yiisoft/yii2/base/Controller.php:128
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Controller.php(148): yii\base\Controller->runAction('', Array)
+#1 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#2 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('mq', Array)
+#3 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('mq', Array)
+#4 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#5 /var/www/dora/weibo/web/batch.php(16): yii\base\Application->run()
+#6 {main}
+
+Next yii\console\UnknownCommandException: Unknown command "mq". in /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php:183
+Stack trace:
+#0 /var/www/dora/weibo/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('mq', Array)
+#1 /var/www/dora/weibo/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#2 /var/www/dora/weibo/web/batch.php(16): yii\base\Application->run()
+#3 {main}
+2019-06-21 03:20:29 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'XDG_SESSION_ID' => '8394'
+    'HOSTNAME' => 'iz2ze87o2y8w8od5dkpraqz'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '115.55.154.109 59783 22'
+    'OLDPWD' => '/var/www'
+    'SSH_TTY' => '/dev/pts/4'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/php7/bin:/usr/local/php7/sbin:/usr/local/nginx/sbin:/usr/local/git/bin:/root/redis/src:/usr/local/go/bin:/root/bin'
+    'PWD' => '/var/www/dora'
+    'LANG' => 'en_US.UTF-8'
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'SSH_CONNECTION' => '115.55.154.109 59783 172.17.224.229 22'
+    'LESSOPEN' => '||/usr/bin/lesspipe.sh %s'
+    'XDG_RUNTIME_DIR' => '/run/user/0'
+    '_' => '/usr/local/php7/bin/php'
+    'PHP_SELF' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_NAME' => '/var/www/dora/weibo/web/batch.php'
+    'SCRIPT_FILENAME' => '/var/www/dora/weibo/web/batch.php'
+    'PATH_TRANSLATED' => '/var/www/dora/weibo/web/batch.php'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1561087229.7393
+    'REQUEST_TIME' => 1561087229
+    'argv' => [
+        0 => '/var/www/dora/weibo/web/batch.php'
+        1 => 'mq'
+        2 => 'wb-push'
+    ]
+    'argc' => 3
+]

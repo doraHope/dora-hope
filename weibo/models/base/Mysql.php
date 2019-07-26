@@ -4,6 +4,11 @@ namespace app\models\base;
 
 use yii\base\Component;
 
+/**
+ * 一个封装的不是特别好的Mysql基础服务类
+ * Class Mysql
+ * @package app\models\base
+ */
 class Mysql extends Component
 {
     protected $table = '';
@@ -93,31 +98,39 @@ class Mysql extends Component
         return self::$con;
     }
 
+    /**
+     * 有config构造SQL
+     * @param $config   SQL构造参数
+     */
     public function setParams($config)
     {
+        //查询的字段
         if (isset($config['field'])) {
             $fields = implode(', ', $config['field']);
             $this->params['field'] = empty($fields) ? '*' : $fields;
         } else {
             $this->params['field'] = '*';
         }
+        //查询的条件, 暂时支持 '=' 和 'in' 的匹配条件, 且防SQL注入攻击
         if (isset($config['where'])) {
             $whereConfig = [];
             foreach ($config['where'] as $_k => $item) {
-                if ($item[0] === self::MYSQL_AI) {
+                if ($item[0] === self::MYSQL_AI) {  //column in (1, 2, 3)
                     $whereConfig[] = sprintf('%s in (%s)', implode(',', $item[1]));
-                } else if ($item[0] === self::MYSQL_AS) {
+                } else if ($item[0] === self::MYSQL_AS) {   //column in ('a', 'b')
                     $whereConfig[] = sprintf('%s in (\'%s\')', implode('\', \'', $item[1]));
-                } else if ($item[0] === self::MYSQL_INT) {
+                } else if ($item[0] === self::MYSQL_INT) {  //column = 1
                     $whereConfig[] = sprintf('%s = \'%s\'', $_k, $item[1]);
-                } else if ($item[0] === self::MYSQL_STRING) {
+                } else if ($item[0] === self::MYSQL_STRING) { //column = '1'
                     $whereConfig[] = sprintf('%s = %d', $_k, intval($item[1]));
                 }
             }
+            //拼接成where条件
             $this->params['where'] = implode(' && ', $whereConfig);
         } else {
             $this->params['where'] = '1 = 1';
         }
+        //构造SQL order by条件
         if (isset($config['order_by'])) {
             if (is_array($config['order_by']) && !empty($config['order_by'])) {
                 $order_by = [];
@@ -131,6 +144,7 @@ class Mysql extends Component
         } else {
             $this->params['order_by'] = '';
         }
+        //构造limit 条件
         if (isset($config['limit'])) {
             $this->params['limit'] = sprintf('limit %d, %d', intval($config['limit']['offset']), intval($config['limit']['length']));
         } else {
@@ -139,12 +153,13 @@ class Mysql extends Component
     }
 
     /*----------------- 关于写的SQL操作*/
-    /** 返回sql查询结果
+    /**
+     * 执行构造完成的SQL，并返回结果
      * @return array
      */
     protected function queryResult()
     {
-        $result = self::$con->query($this->SQL);
+        $result = self::$con->query($this->SQL);    //SQL执行
         if(false === $result) {
             return false;
         }
@@ -153,10 +168,10 @@ class Mysql extends Component
             return [];
         }
         $arrRet = [];
-        while ($row = $result->fetch_assoc()) {
+        while ($row = $result->fetch_assoc()) {     //遍历结果集合并存储
             $arrRet[] = $row;
         }
-        return $arrRet;
+        return $arrRet;                             //返回查询结果
     }
 
     /** 构造$this->SQL
@@ -164,6 +179,7 @@ class Mysql extends Component
      */
     protected function createSQL()
     {
+        //由成员变量params构造SQL
         $this->SQL = sprintf(
             "select %s from %s where %s %s %s",
             $this->params['field'],
@@ -174,7 +190,8 @@ class Mysql extends Component
         );
     }
 
-    /** 构造where条件查询字段
+    /**
+     * 构造where条件查询句子
      * @param $where 条件查询变量
      * @return string
      */
@@ -200,6 +217,10 @@ class Mysql extends Component
         return implode(" && ", $subWhere);
     }
 
+    /**
+     * 用于update, delete, insert，却别于update
+     * @return bool
+     */
     protected function execute()
     {
         if(false === $this->db()->query($this->SQL)) {
@@ -208,11 +229,22 @@ class Mysql extends Component
         return true;
     }
 
+    /**
+     * 获取刚插入记录的id值
+     * @return mixed
+     */
     public function getInsertId()
     {
         return Mysql::$con->insert_id;
     }
 
+    /**
+     * 按 column = value的方式，查询表中是否存在相关记录
+     * @param $type         column字段类型
+     * @param $field        column字段名称
+     * @param $value        数值
+     * @return array
+     */
     public function queryByPkForExists($type, $field, $value)
     {
         $SQL = $this->SQL;
@@ -242,6 +274,14 @@ class Mysql extends Component
         return $ret;
     }
 
+    /**
+     * 按 column = value的方式，获取匹配的记录
+     * @param $type         column字段类型
+     * @param $field        column字段名称
+     * @param $value        数值
+     * @param $fields       查询的字段
+     * @return array
+     */
     public function queryByKey($type, $field, $value, $fields)
     {
         $queryCol = [];
@@ -281,6 +321,13 @@ class Mysql extends Component
         return $ret;
     }
 
+    /**
+     * 按 column = value的方式，只返回结果集中的一条
+     * @param $type     column字段类型
+     * @param $field    column字段名称
+     * @param $value    数值
+     * @return mixed
+     */
     public function queryOneByKey($type, $field, $value)
     {
         $SQL = $this->SQL;
@@ -310,6 +357,12 @@ class Mysql extends Component
         return $ret[0];
     }
 
+    /**
+     * 连表查询，查询a的集合field 匹配 b的filed, 取出表b的匹配结果集合的第一条记录
+     * @param $where    子查询条件的相关配置
+     * @param $field    匹配字段
+     * @return mixed
+     */
     public function queryOneByWhere($where, $field)
     {
         $where = $this->createWhere($where);
@@ -330,6 +383,14 @@ class Mysql extends Component
         return $ret[0];
     }
 
+    /**
+     * 连表查询，查询a的集合field 匹配 b的filed, 取出表b的匹配结果集合
+     * @param $where    子查询条件的相关配置
+     * @param $field    匹配字段
+     * @param $offset   结果集合偏移量
+     * @param $length   结果集合取长
+     * @return mixed
+     */
     public function queryListByWhere($where, $field, $offset, $length)
     {
         $where = $this->createWhere($where);
@@ -354,6 +415,10 @@ class Mysql extends Component
         return $ret[0];
     }
 
+    /**
+     * 通过加排他锁[行锁}方式查询，同步方式查询，保证数据操作原子性
+     * @return array
+     */
     public function queryWithLock()
     {
         $this->createSQL();
@@ -361,10 +426,31 @@ class Mysql extends Component
         return $this->queryResult();
     }
 
+    /**
+     * 可传入手工sql执行，并返回相关结果
+     * @param $SQL
+     * @return array
+     */
+    public function query($SQL)
+    {
+        $tmp = $this->SQL;
+        $this->SQL = $SQL;
+        $ret = $this->queryResult();
+        if(false === $ret) {
+            $this->SQL = $tmp;
+        }
+        return $ret;
+    }
+
+    /**
+     * 获取表中key字段值的最大值+1
+     * @param $key
+     * @return array|int
+     */
     public function queryPID($key)
     {
         $SQL = $this->SQL;
-        $this->SQL = sprintf('select max(%s) as id from %s for update', $key, $this->table);
+        $this->SQL = sprintf('select max(%s)+1 as id from %s for update', $key, $this->table);
         $ret = $this->queryResult();
         if(false === $ret) {
             $this->SQL = $SQL;
@@ -374,12 +460,17 @@ class Mysql extends Component
                 $key => 1
             ];
         }
-        return $ret[0];
+        return intval($ret[0]['id']);
     }
 
     /*++++++++++++++++++++ 查询end*/
 
     /*-------------------- 写相关*/
+    /**
+     * 构成where匹配条件子句
+     * @param $field
+     * @return string
+     */
     private function createField($field)
     {
         $arrField = [];
@@ -399,6 +490,11 @@ class Mysql extends Component
         }
     }
 
+    /**
+     * 用于插入语句，获取关联数组的key集合和value集合并返回
+     * @param $data
+     * @return array
+     */
     private function getKeyAndValue(&$data)
     {
         $keys = [];
@@ -417,6 +513,12 @@ class Mysql extends Component
         ];
     }
 
+    /**
+     * 更新操作
+     * @param $where        构成查询条件的关联数组
+     * @param $fields       构成查询字段的关联数组
+     * @return bool
+     */
     public function update($where, $fields)
     {
         $SQL = $this->SQL;
@@ -430,6 +532,11 @@ class Mysql extends Component
         return $ret;
     }
 
+    /**
+     * 写操作，
+     * @param $fields       写入字段->值的关联数组
+     * @return bool
+     */
     public function write($fields)
     {
         $arrInsert = $this->getKeyAndValue($fields);
@@ -444,6 +551,11 @@ class Mysql extends Component
         return $ret;
     }
 
+    /**
+     * 按where子句条件删除匹配记录
+     * @param $where        构成where子句的关联数组
+     * @return bool
+     */
     public function delete($where)
     {
         $SQL = $this->SQL;
@@ -457,17 +569,26 @@ class Mysql extends Component
     }
 
     /*------------ 事务*/
+    /**
+     * 开始一个事务，即设置auto_commit  = 0
+     */
     public function transaction()
     {
         self::$con->autocommit(false);
     }
 
+    /**
+     * 提交一个事务
+     */
     public function commit()
     {
         self::$con->commit();
         self::$con->autocommit(true);
     }
 
+    /**
+     * 回滚一个事务
+     */
     public function rollback()
     {
         self::$con->rollback();

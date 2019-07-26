@@ -25,11 +25,10 @@ use app\models\active_record\WbUserRank;
 use app\models\service\Email;
 use app\models\UserLogin;
 use app\models\UserRegister;
-use app\models\active_record\WbComment;
 use Yii;
 
 /**
- * ajax操作响应类
+ * ajax操作响应类    用户登陆操纵相关
  * @package app\controllers
  */
 class ActionController extends DController
@@ -67,18 +66,38 @@ class ActionController extends DController
             }
         }
         $modelUserLogin = new WbUserLogin();
-        $ret = $modelUserLogin->verify($strUser, WBCommon::hash($strPass));
-        if(!$ret) {
+        $uid = $modelUserLogin->verify($strUser, WBCommon::hash($strPass));
+        if(!$uid) {
             WBCommon::apiResponse(FAIL, '登陆失败');
         }
-        $modelUserLogin->update(['uid' => [TYPE_INT, $ret]], [
+        $ret = $modelUserLogin->update(['uid' => [TYPE_INT, $uid]], [
             'pre_login_time' => [TYPE_INT, 'last_login_time'],
             'last_login_time' => [TYPE_INT, time()]
         ]);
         if(!$ret) {
             //log
         }
+        $modelUser = new WbUser();
+        $arrUserInfo = $modelUser->queryOneByKey(TYPE_STRING, 'uid', $ret);
+        if(!$arrUserInfo) {
+            WBCommon::apiResponse(FAIL, '用户不存在!');
+        }
+        $this->session->set('mail', $strUser);
+        $this->session->set('uid', $uid);
+        $this->session->set('nickname', $arrUserInfo['nickname']);
         WBCommon::apiResponse(SUCCESS);
+    }
+
+    public function actionLogout()
+    {
+        if($this->session->get('uid')) {
+            $this->session->set('uid', '');
+            $this->session->set('nickname', '');
+            $this->session->set('mail', '');
+            WBCommon::apiResponse(SUCCESS);
+        } else {
+            WBCommon::apiResponse(FAIL, '注销失败');
+        }
     }
 
     public function actionRegister()
@@ -138,7 +157,7 @@ class ActionController extends DController
         $modelUser->transaction();
         try{
             //将用户数据库初始化到数据库中
-            $uid = ($modelUser->queryPID('id'))['id'];
+            $uid = ($modelUser->queryPID('uid'));
             if(!$uid) {
                 //消回用户注册token
                 $modelUser->rollback();
@@ -157,6 +176,7 @@ class ActionController extends DController
                 $modelUser->rollback();
                 WBCommon::apiResponse('注册失败, 请稍后重新注册');
             }
+            //初始化用户表中对应的记录
             $modelWbConfigAite = new WbConfigMessageAite();
             $modelWbConfigAite->write([
                 'uid' => [TYPE_INT, $uid]
@@ -215,154 +235,6 @@ class ActionController extends DController
             $modelUser->rollback();
             WBCommon::apiResponse('注册失败, 请稍后重新注册');
         }
-    }
-
-    /**
-     * 发送微博消息: 发送者，发送微博的内容[objWeiBo]
-     */
-    public function actionWeiBo()
-    {
-        $retData = [];
-        $app = Yii::$app;
-        $arrWeiBo = $app->getRequest()->post('obj_wei_bo', null);
-        if(!$arrWeiBo) {
-            WBCommon::apiResponse(1, '消息信息不完整');
-        }
-        $ret = WBMessageCommon::MSCorrect($arrWeiBo);
-        if(false === $ret) {
-            WBCommon::apiResponse(1, '消息不完整');
-        }
-        //@微博消息合理性AI校验, 较浅意义不大, 功能暂时搁浅
-//        $arrWeiBo['uid'] = $app->session->get('uid');
-        $arrWeiBo['uid'] = 1;
-        if($arrWeiBo['extra_type'] === TYPE_FILE) {
-            $retFile = FileHandler::moveUploadFile($arrWeiBo['uid'], $arrWeiBo['files']);
-            if($retFile['fail']) {
-                $retData['msg'] = '丢失文件包括';
-                $retData['data'] = json_encode($retFile['fail'], JSON_UNESCAPED_UNICODE);
-            }
-            if(!$retFile['success']) {
-                $arrWeiBo['extra_type'] = 0;
-            } else {
-                $arrWeiBo['extra_content'] = json_encode($retFile['success'], JSON_UNESCAPED_SLASHES);
-            }
-        }
-        $arrWeiBo['openid'] = [0, $arrWeiBo['openid']];
-        $arrWeiBo['content'] = [1, $arrWeiBo['content']];
-        $arrWeiBo['extra_type'] = [0, $arrWeiBo['extra_type']];
-        $arrWeiBo['uid'] = [0, $arrWeiBo['uid']];
-        $arrWeiBo['last_time'] = [0, time()];
-        $arrWeiBo['create_time'] = [0, time()];
-        $modelWbBase = new WbBase();
-        $modelWbBase->write($arrWeiBo);
-        $intWbId = $modelWbBase->getInsertId();
-        WBMessageCommon::pushEvent2Members([
-            'event_type' => WB_EVENT_WEI_BO,
-            'event_id' => $intWbId
-        ], $arrWeiBo['content']);                                       //微博的消息中可能指定某个user，所以将该微博通知给user
-        WBRedisHandler::push2selfWB($arrWeiBo['uid'][1], $intWbId);     //将微博推送到自己的微博消息队列中
-        WBRedisHandler::pushWeiBo($arrWeiBo['uid'][1], $intWbId);       //将微博推送到粉丝的微博消息队列中
-
-    }
-
-    /**
-     * 调试方法
-     */
-    public function actionDj()
-    {
-        SlowMqHandler::consumeMq(1);
-    }
-
-    /**
-     * 评论
-     */
-    public function actionComment()
-    {
-        $request = Yii::$app->getRequest();
-        $arrEvent = $request->post('comment');
-        $timestamp = time();
-//        $intUid = intval(Yii::$app->session->get('uid'));
-        $intUid = 2;
-        $ret = WBMessageCommon::CommonEmpty([
-            'wb_id' => TYPE_INT,
-            'content' => TYPE_STRING
-        ], $arrEvent);
-        if($ret) {
-            WBCommon::apiResponse(FAIL, '评论失败!');
-        }
-        //微博是否存在校验
-        $modelWbBase = new WbBase();
-        $ret = $modelWbBase->queryByPkForExists(TYPE_INT, 'id', $arrEvent['wb_id']);
-        if(!$ret) {
-            WBCommon::apiResponse(FAIL, '该条微博不存在');
-        }
-        $modelWbComment = new WbComment();
-        //写入评论
-        $arrComment = [
-            'wb_id' => [TYPE_INT, $arrEvent['wb_id']],
-            'uid' => [TYPE_INT, $intUid],
-            'comment_content' => [TYPE_STRING, $arrEvent['content']],
-            'comment_time' => [TYPE_INT, $timestamp]
-        ];
-        $modelWbComment->write($arrComment);
-        $commentId = $modelWbComment->getInsertId();
-        $modelWB = new WbBase();
-        $modelWB->update([
-            'id' => [TYPE_INT, $arrEvent['wb_id']]
-        ],  ['comment_number' => [TYPE_INT, 'comment_number+1']]);
-        WBMessageCommon::pushEvent2Members([
-            'event_type' => WB_EVENT_COMMENT,
-            'event_id' => $commentId
-        ], $arrEvent['content']);
-        WBCommon::apiResponse(SUCCESS, 'success');
-    }
-
-
-    /**
-     * 回复
-     */
-    public function actionRepay()
-    {
-        $request = Yii::$app->getRequest();
-        $arrEvent = $request->post('reply');
-        $timestamp = time();
-        $intUid = intval(Yii::$app->session->get('uid'));
-        $strOpenId = Yii::$app->session->get('openid');
-        $ret = WBMessageCommon::CommonEmpty([
-            'wb_id' => TYPE_INT,
-            'comment_id' => TYPE_INT,
-            'content' => TYPE_STRING
-        ], $arrEvent);
-        if($ret) {
-            WBCommon::apiResponse(FAIL, '回复失败!');
-        }
-        $modelWbReply = new WbReply();
-        $ret = $modelWbReply->queryByPkForExists(TYPE_INT, 'id', $arrEvent['comment_id']);
-        if(!$ret) {
-            WBCommon::apiResponse(FAIL, '该条评论不存在!');
-        }
-        $arrReply = [
-            'comment_id' => [TYPE_INT, $arrEvent['comment_id']],
-            'uid' => [TYPE_INT, $intUid],
-            'openid' => [TYPE_STRING, $strOpenId],
-            'reply_content' => [TYPE_STRING, $arrEvent['content']],
-            'reply_time' => $timestamp
-        ];
-        $modelWbReply->write($arrReply);
-        $replyId = $modelWbReply->getInsertId();
-        $modelComment = new WbComment();
-        $modelComment->update([
-            'id' => [TYPE_INT, $arrEvent['comment_id']]
-        ], ['reply_number' => [TYPE_INT, 'reply_number+1']]);
-        $modelWB = new WbBase();
-        $modelWB->update([
-            'id' => [TYPE_INT, $arrEvent['wb_id']]
-        ],  ['comment_number' => [TYPE_INT, 'comment_number+1']]);
-        WBMessageCommon::pushEvent2Members([
-            'event_type' => WB_EVENT_COMMENT,
-            'event_id' => $replyId
-        ], $arrEvent['content']);
-        WBCommon::apiResponse(SUCCESS, 'success');
     }
 
 }

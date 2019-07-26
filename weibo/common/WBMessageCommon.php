@@ -17,16 +17,12 @@ class WBMessageCommon
      */
     public static function MSCorrect(& $objWB)
     {
-        if (!isset($objWB['openid']) || !$objWB) {
-            return false;
-        }
-        $objWB['openid'] = addslashes($objWB['openid']);
         $objWB['content'] = trim($objWB['content']);
         if (!isset($objWB['content']) || !$objWB['content']) {
             return false;
         }
-        $objWB['content'] = addslashes($objWB['openid']);
-        if (($objWB['extra_type'] = intval($objWB['extra_type'])) === TYPE_FILE) {
+        $objWB['content'] = addslashes($objWB['content']);
+        if (isset($objWB['extra_type']) && ($objWB['extra_type'] = intval($objWB['extra_type'])) === TYPE_FILE) {
             if (!$_FILES['extra_file']) {
                 $objWB['extra_type'] = TYPE_TEXT;
             } else {
@@ -35,10 +31,17 @@ class WBMessageCommon
                     $objWB['files'] = $file;
                 }
             }
+        } else {
+            $objWB['extra_type'] = '';
         }
         return true;
     }
 
+    /**
+     * 从微博内容get出要@的微博用户集合，用于后台将yo
+     * @param $message
+     * @return array
+     */
     private static function analysisPusher($message)
     {
         $members = [];
@@ -104,8 +107,8 @@ class WBMessageCommon
         }
         //遍历members, 获取有效member
         foreach ($members as $member) {
-            if (($uid = self::memberExists($redis, $member))) {
-                self::pushEvent2Member($redis, $uid, $event_);
+            if (($fid = self::memberExists($redis, $member))) {
+                self::pushEvent2Member($redis, $fid, $event_);
             }
         }
     }

@@ -13,11 +13,11 @@ class UserLogin extends Model
     private $password;
     private $verifyCode;
 
-    public function __construct($user, $password, $verifyCode)
+    public function __construct($user, $password)
     {
         $this->user = $user;
         $this->password = $password;
-        $this->verifyCode = $verifyCode;
+//        $this->verifyCode = $verifyCode;
     }
 
 //    public function __set($name, $value)
@@ -42,8 +42,8 @@ class UserLogin extends Model
             case 'password':
                 $value = $this->getPassword();
                 break;
-            case 'verifyCode':
-                $value = $this->getVerifyCode();
+//            case 'verifyCode':
+//                $value = $this->getVerifyCode();
         }
         return $value;
     }
@@ -63,10 +63,10 @@ class UserLogin extends Model
 //        $this->verifyCode = $value;
 //    }
 
-    public function getVerifyCode()
-    {
-        return $this->verifyCode;
-    }
+//    public function getVerifyCode()
+//    {
+//        return $this->verifyCode;
+//    }
 
     public function getUser()
     {
@@ -81,8 +81,8 @@ class UserLogin extends Model
     public function rules()
     {
         return [
-            [['user', 'password', 'verifyCode'], 'required', 'message' => '登陆信息不能为空'],
-            ['verifyCode', 'captcha',  'captchaAction' => 'action/captcha']
+            [['user', 'password'], 'required', 'message' => '登陆信息不能为空']
+//            ['verifyCode', 'captcha',  'captchaAction' => 'action/captcha']
         ];
     }
 }

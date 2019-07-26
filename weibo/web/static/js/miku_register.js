@@ -1,5 +1,5 @@
 $(function () {
-    const BASE_URL = 'http://zc.weibo.com/index.php';
+    const BASE_URL = 'http://www.caibird.top/index.php';
     function clear_error(element) {
         element.removeClass('input_error');
         element.val('');

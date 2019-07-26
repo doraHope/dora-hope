@@ -13,6 +13,7 @@ $this->params['common'] = '@app/views/common/com_';
     <?php endif; ?>
 </head>
 <body>
+<input type="hidden" class="login_token" value="<?=Yii::$app->session->get('uid') ? 1 : 0 ?>">
 <div id="main" class="flex-column__v--center">
     <div class="top flex-row__hv-center">
         <div class="top-content flex-row__hv-center">
@@ -42,10 +43,17 @@ $this->params['common'] = '@app/views/common/com_';
                         <a class="options-item_link">游戏</a>
                     </div>
                 </div>
-                <div class="login-bar">
-                    <a class="register">注册</a>
-                    <a class="login">登陆</a>
-                </div>
+                <?php if(!Yii::$app->session->get('uid')): ?>
+                    <div class="login-bar">
+                        <a class="register">注册</a>
+                        <a class="login">登陆</a>
+                    </div>
+                <?php else: ?>
+                    <div class="user-bar">
+                        <span style="font-size: 14px">你好,&nbsp;<a class="wb-user_label"><?= Yii::$app->session->get('nickname') ?></a> &nbsp;</span>
+                        <a class="logout">注销</a>
+                    </div>
+                <?php endif; ?>
 
             </div>
         </div>

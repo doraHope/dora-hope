@@ -6,6 +6,13 @@ namespace app\models\base;
 
 use yii\base\Component;
 
+/**
+ * redis 操作相关基础服务类
+ * @注: 设计之初并没有考虑到redis的任何一个结构体下的具有公共前缀的key可以看作一个具体的类，而Redis可以做一个封装基础操作的基类
+ *      ，后期回去规范
+ * Class Redis
+ * @package app\models\base
+ */
 class Redis extends Component
 {
 
@@ -196,7 +203,7 @@ class Redis extends Component
      */
     public function listRange($key, $offset, $length)
     {
-        $start = $offset * 10;
+        $start = $offset * $length;
         $end = $start + $length;
         $data = Redis::$db->lRange($key, $start, $end);
         if (false !== $data) {

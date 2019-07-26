@@ -34,10 +34,11 @@ define('QUICK_SLOW_LIMIT_LIEN', 1000);          //区分热门微博和不热门
 define('WB_PUSH_LENGTH', 1000);                    //每一次推送给粉丝的数量
 
 /*-------------------- 微博redis的key*/
-define('WB_FENS', 'wb:fens:liu:');
-define('WB_FENS_ZET', 'wb:fens:');
-define('WB_SELF', 'wb:self:');
-define('WB_FOCUS', 'wb:other:');
+define('WB_FENS', 'wb:fens:liu:');              //博主的粉丝集合
+define('WB_FENS_ZET', 'wb:fens:');              //博主的粉丝有序集合
+define('WB_SELF', 'wb:event:self:');            //博主自己的微博消息队列
+define('WB_PULIBC', 'wb:event:public:');        //博主自己+关注者发送的微博
+define('WB_FOCUS', 'wb:event:other:');          //粉丝的微博消息队列
 
 
 /*-------------------- redis对列名*/

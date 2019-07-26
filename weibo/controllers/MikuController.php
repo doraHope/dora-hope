@@ -7,6 +7,7 @@ use app\common\WBCommon;
 use app\models\service\Filter;
 use Yii;
 /**
+ * 用户注册页
  * @package app\controllers
  */
 class MikuController extends DController
@@ -16,6 +17,7 @@ class MikuController extends DController
     {
         $request = Yii::$app->getRequest();
         $mail = $request->get('mail');
+        $mail = substr(base64_decode(base64_decode($mail)), 7, -6);
         $token = $request->get('token');
         $ret = Filter::filterEmpty([
             'mail' => $mail,

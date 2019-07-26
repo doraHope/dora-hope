@@ -1,5 +1,6 @@
 <?php
     $this->params['css'] = ['default_page.css'];
+    $this->params['js'] = ['default_page.js'];
 ?>
 <div class="left-nav">
     <ul class="nav-list">
@@ -45,6 +46,9 @@
             <div class="option-item option-video">
                 <img class="options-item_img" src="<?=WB_URL.'/static/imgs/wb-editor_video.png' ?>">
                 <a class="options-item_link">视频</a>
+            </div>
+            <div class="option-item option-send">
+                <span class="wb-send_btn">发送</span>
             </div>
             <div class="expand-outer">
                 <div class="expand-inner">
@@ -161,6 +165,35 @@
     </div>
     <div class="news-list">
         <!--                不同消息类型对应不同的窗口-->
+<!--        <div class="wb-event_weibo">-->
+<!--            <div class="wb-event_weibo--top">-->
+<!--                <img class="wb-user_icon" src="--><?//=WB_URL.'/static/imgs/wb-default_icon.svg' ?><!--" alt="">-->
+<!--                <span class="wb-user_nickname">dora</span>-->
+<!--                <div class="wb-user_labels"></div>-->
+<!--            </div>-->
+<!--            <div class="wb-event_weibo--content">-->
+<!--                <div class="wb-event_weibo--content_wz">-->
+<!--                    <p>hope for you</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="wb-event_weibo--bottom">-->
+<!--                <div class="wb-event_weibo--btn_list">-->
+<!--                    <span class="btn_list-item">-->
+<!--                        <img src="--><?//=WB_URL.'/static/imgs/wb-dz.svg' ?><!--" alt="">-->
+<!--                        <a>1</a>-->
+<!--                    </span>-->
+<!--                    <span class="btn_list-item">-->
+<!--                        <img src="--><?//=WB_URL.'/static/imgs/wb-comment.svg' ?><!--" alt="">-->
+<!--                        <a>2</a>-->
+<!--                    </span>-->
+<!--                    <span class="btn_list-item">-->
+<!--                        <img src="--><?//=WB_URL.'/static/imgs/wb-trans.svg' ?><!--" alt="">-->
+<!--                        <a>2</a>-->
+<!--                    </span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!---->
+<!--        </div>-->
         <div class="new-item_01">
             <div class="new-item__left-img">
 
@@ -187,6 +220,7 @@
 </div>
 <div class="right-window">
     <!--            暂时用不到-->
+    <?php if(!isset($user)): ?>
     <div class="login-window">
         <div class="login-box">
             <header class="login-top">账号</header>
@@ -207,6 +241,7 @@
             <div class="login-register"><a>还没微博? <a class="register-btn">立即注册</a></a></div>
         </div>
     </div>
+    <?php endif;?>
     <!--            微博新鲜事儿-->
     <div class="wb-news">
 
